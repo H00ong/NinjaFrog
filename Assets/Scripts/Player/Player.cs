@@ -7,9 +7,13 @@ public class Player : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
 
+    public float xBoundary = 3.1f;
+
+    #region States
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
+    #endregion
 
     #region Components
     public Animator Anim { get; private set; }
@@ -48,6 +52,8 @@ public class Player : MonoBehaviour
         Rb.velocity = new Vector2(_xInput, _yInput);
         FlipControl(_xInput);
     }
+
+    public void SetZeroVelocity() => SetVelocity(0, Rb.velocity.y);
 
     public void FlipControl(float _xInput)
     {

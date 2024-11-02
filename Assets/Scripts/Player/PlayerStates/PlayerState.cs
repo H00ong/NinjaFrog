@@ -30,7 +30,18 @@ public class PlayerState
     {
         xInput = Input.GetAxisRaw("Horizontal");
 
-        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
+        if (player.transform.position.x > player.xBoundary && xInput > 0)
+        {
+            player.SetZeroVelocity();
+        }
+        else if (player.transform.position.x < -player.xBoundary && xInput < 0)
+        {
+            player.SetZeroVelocity();
+        }
+        else 
+        {
+            player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
+        }
 
         if (rb.velocity.y < 0) 
         {
