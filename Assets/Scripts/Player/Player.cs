@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
+    public PlayerDeadState DeadState { get; private set; }
     #endregion
 
     #region Components
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
         StateMachine = new PlayerStateMachine();
         JumpState = new PlayerJumpState(this, StateMachine, "Jump");
         FallState = new PlayerFallState(this, StateMachine, "Fall");
+        DeadState = new PlayerDeadState(this, StateMachine, "Dead");
 
         Rb           = GetComponent<Rigidbody2D>();
         Collider     = GetComponent<CapsuleCollider2D>();
@@ -80,5 +82,12 @@ public class Player : MonoBehaviour
         {
             StateMachine.ChangeState(JumpState);
         }
+    }
+
+    public void Die() 
+    {
+        StateMachine.ChangeState(DeadState);
+        Collider.enabled = false;
+        Rb.gravityScale = 0f;
     }
 }
