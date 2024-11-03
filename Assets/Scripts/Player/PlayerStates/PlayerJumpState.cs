@@ -11,6 +11,8 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
 
+        anim.Play("Jump", 0, 0f);
+
         player.SetVelocity(player.Rb.velocity.x, player.jumpForce);
     }
 
