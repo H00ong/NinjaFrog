@@ -28,6 +28,12 @@ public class PlayerState
 
     public virtual void Update()
     {
+        if (player.JumpCheck()) 
+        {
+            stateMachine.ChangeState(player.JumpState);
+            return;
+        }
+
         xInput = Input.GetAxisRaw("Horizontal");
 
         if (player.transform.position.x > player.xBoundary && xInput > 0)

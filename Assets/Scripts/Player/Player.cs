@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] GameObject groundedCheck;
+    [SerializeField] float groundedRadius = 0.2f;
+    LayerMask groundLayer;
+
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
 
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
     void Start()
     {
           StateMachine.InitializeState(JumpState);
+          groundLayer = LayerMask.GetMask("Ground");
     }
 
     void Update()
@@ -76,12 +81,14 @@ public class Player : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool JumpCheck() 
     {
-        if (collision.CompareTag("Ground")) 
-        {
-            StateMachine.ChangeState(JumpState);
-        }
+        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);   
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(groundedCheck.transform.position, groundedRadius);
     }
 
     public void Die() 
