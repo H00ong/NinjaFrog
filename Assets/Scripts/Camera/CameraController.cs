@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] Vector3 offset;
 
-    void Update()
+    void LateUpdate()
     {
         transform.position = new Vector3(0, player.position.y, transform.position.z) + offset;
     }
