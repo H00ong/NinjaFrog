@@ -21,9 +21,9 @@ public class PlayerState
 
     public virtual void Enter()
     {
-        player.Anim.SetBool(animBoolName, true);
-        rb = player.Rb;
         anim = player.Anim;
+        rb = player.Rb;
+        anim.SetBool(animBoolName, true);
     }
 
     public virtual void Update()
