@@ -10,9 +10,9 @@ public class PlayerDoubleJumpState : PlayerState
 
     public override void Enter()
     {
-        base.Enter();
-
         player.Collider.enabled = false;
+        
+        base.Enter();
 
         player.SetVelocity(0f, player.doubleJumpForce);
     }
@@ -23,9 +23,9 @@ public class PlayerDoubleJumpState : PlayerState
 
     public override void Exit()
     {
-        base.Exit();
-
         player.Collider.enabled = true;
+        
+        base.Exit();
     }
 
 }

@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public PlayerFallState FallState { get; private set; }
     public PlayerDeadState DeadState { get; private set; }
     public PlayerDoubleJumpState DoubleJumpState { get; private set; }
+    public PlayerIdleState IdleState { get; private set; }
     #endregion
 
     #region Components
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         FallState = new PlayerFallState(this, StateMachine, "Fall");
         DeadState = new PlayerDeadState(this, StateMachine, "Dead");
         DoubleJumpState = new PlayerDoubleJumpState(this, StateMachine, "Double Jump");
+        IdleState = new PlayerIdleState(this, StateMachine, "Idle");
 
         Rb           = GetComponent<Rigidbody2D>();
         Collider     = GetComponent<CapsuleCollider2D>();
