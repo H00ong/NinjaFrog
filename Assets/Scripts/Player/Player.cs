@@ -8,8 +8,10 @@ public class Player : MonoBehaviour
     [SerializeField] float groundedRadius = 0.2f;
     LayerMask groundLayer;
 
+    [Header("Move Info")]
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
+    public float doubleJumpForce = 30f;
 
     public float xBoundary = 3.1f;
 
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
     public PlayerDeadState DeadState { get; private set; }
+    public PlayerDoubleJumpState DoubleJumpState { get; private set; }
     #endregion
 
     #region Components
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, "Jump");
         FallState = new PlayerFallState(this, StateMachine, "Fall");
         DeadState = new PlayerDeadState(this, StateMachine, "Dead");
+        DoubleJumpState = new PlayerDoubleJumpState(this, StateMachine, "Double Jump");
 
         Rb           = GetComponent<Rigidbody2D>();
         Collider     = GetComponent<CapsuleCollider2D>();
@@ -83,6 +87,9 @@ public class Player : MonoBehaviour
 
     public bool JumpCheck() 
     {
+        if(!Collider.enabled)
+            return false;
+
         return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);   
     }
 
@@ -94,7 +101,10 @@ public class Player : MonoBehaviour
     public void Die() 
     {
         StateMachine.ChangeState(DeadState);
-        Collider.enabled = false;
-        Rb.gravityScale = 0f;
+    }
+
+    public void DoubleJump() 
+    {
+        StateMachine.ChangeState(DoubleJumpState);
     }
 }

@@ -6,19 +6,11 @@ public class DeathPlane : MonoBehaviour
 
     private void Update()
     {
-        GameObject[] grounds = GameObject.FindGameObjectsWithTag("Ground");
+    }
 
-        GameObject lowestGround = grounds[0];
-
-        foreach (GameObject ground in grounds)
-        {
-            if (ground.transform.position.y < lowestGround.transform.position.y)
-            {
-                lowestGround = ground;
-            }
-        }
-
-        transform.position = lowestGround.transform.position + offset;
+    public void UpdatePosition(Transform _lowestGround)
+    {
+        transform.position = _lowestGround.position + offset;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

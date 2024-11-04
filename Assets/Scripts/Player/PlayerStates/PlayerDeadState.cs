@@ -10,6 +10,9 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+        player.Collider.enabled = false;
+        rb.gravityScale = 0f;
     }
 
     public override void Update()

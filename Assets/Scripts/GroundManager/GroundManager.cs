@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundManager : MonoBehaviour
 {
-    // ground간에 위치 조정이 필요 현재 yPos와 xPos가 너무 밀집되는 경우가 많음
+    [Header("Ground Info")]
     [SerializeField] float generateYOffset = 6f;
     [SerializeField] float maxXOffset = 3.8f;
     [SerializeField] float maxYOffset = 2.7f;
@@ -12,6 +12,8 @@ public class GroundManager : MonoBehaviour
     [SerializeField] float minYOffset = 1.3f;
     [SerializeField] int groundCount = 15;
     [SerializeField] GameObject[] groundPrefab;
+
+    [SerializeField] DeathPlane deathPlane;
 
     Transform player;
 
@@ -52,6 +54,7 @@ public class GroundManager : MonoBehaviour
                 groundList.RemoveAt(i);
                 Destroy(ground);
                 CreateGround();
+                deathPlane.UpdatePosition(groundList[0].transform);
             }
         }
     }

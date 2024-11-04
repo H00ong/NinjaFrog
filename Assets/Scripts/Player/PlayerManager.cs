@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-    public GameObject player;
+    public Player player;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            player = GameObject.Find("Player");
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
         else
         {
