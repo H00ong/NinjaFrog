@@ -313,7 +313,7 @@ MonoBehaviour:
   generateYOffset: 8
   maxXOffset: 3.8
   maxYOffset: 2.5
-  minXOffset: 0.75
+  minXOffset: 1.3
   minYOffset: 1.5
   groundCount: 15
   groundPrefab:
@@ -323,6 +323,7 @@ MonoBehaviour:
   - {fileID: 312653561919615723, guid: 096bdf5782a78cd4d925f8eda7f955da, type: 3}
   - {fileID: 396116794836444620, guid: e01bb4d80939cdd4ea881b77fe4e8f4d, type: 3}
   - {fileID: 638727218159186696, guid: c25fce30e0872224882960cd3a53ef1e, type: 3}
+  - {fileID: 8989898944132725372, guid: 423a66fcf818b404aa7a13d93f1cc045, type: 3}
   deathPlane: {fileID: 1393638759}
   groundSprites:
   - {fileID: -409511399, guid: be44d87c2e55ff24ba82db23e275d537, type: 3}
@@ -407,7 +408,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.866667, y: 12.266666}
+  m_Size: {x: 1.76, y: 3.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -476,7 +477,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 12.8, y: 8}
+  m_Size: {x: 3.84, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -684,7 +685,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.866667, y: 12.266666}
+  m_Size: {x: 1.76, y: 3.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -891,7 +892,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.866667, y: 12.266666}
+  m_Size: {x: 1.76, y: 3.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1005,7 +1006,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 106640220}
   offset: {x: 0, y: 1, z: 0}
-  background: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

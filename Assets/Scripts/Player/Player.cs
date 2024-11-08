@@ -89,12 +89,24 @@ public class Player : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    public bool JumpCheck() 
+    public bool JumpCheck()
     {
-        if(!Collider.enabled)
+        if (!Collider.enabled)
             return false;
 
-        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);
+        RaycastHit2D hit = Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);
+
+        if (hit.collider != null)
+        {
+            FallingGround fallingGround = hit.collider.GetComponent<FallingGround>();
+            if (fallingGround != null)
+            {
+                fallingGround.Fall();
+            }
+            return true; // 충돌이 있는 경우 true 반환
+        }
+
+        return false; // 충돌이 없는 경우 false 반환
     }
 
     public bool TrapCheck() 
