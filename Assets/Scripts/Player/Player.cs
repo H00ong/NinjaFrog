@@ -70,11 +70,11 @@ public class Player : MonoBehaviour
 
     public void FlipControl(float _xInput)
     {
-        if (FacingDir == 1 && _xInput < 0)
+        if (FacingDir == 1 && (Mathf.Abs(_xInput) > Constants.threshold && _xInput < 0))
         {
             Flip();
         }
-        else if (FacingDir == -1 && _xInput > 0) 
+        else if (FacingDir == -1 && (Mathf.Abs(_xInput) > Constants.threshold && _xInput > 0)) 
         {
             Flip();
         }   

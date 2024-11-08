@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 9179145592475727113}
   - component: {fileID: 6208620815463546645}
   m_Layer: 3
-  m_Name: Ground With Trampline
+  m_Name: Ground_Trampline
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
