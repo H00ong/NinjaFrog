@@ -11,22 +11,24 @@ public class GroundManager : MonoBehaviour
     [SerializeField] float minXOffset = .25f;
     [SerializeField] float minYOffset = 1.3f;
     [SerializeField] int groundCount = 15;
+    
     [SerializeField] GameObject[] groundPrefab;
-
     [SerializeField] DeathPlane deathPlane;
-
     [SerializeField] Sprite[] groundSprites;
 
     Transform player;
 
     public List<GameObject> groundList = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         player = PlayerManager.instance.player.transform;
 
         GameObject ground = Instantiate(groundPrefab[Random.Range(0, groundPrefab.Length)], new Vector3(0, -1), Quaternion.identity);
-        ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
+        
+        if(ground.GetComponent<SpriteRenderer>() != null)
+            ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
+
         groundList.Add(ground);
 
         CreateGround(groundCount - 1);
@@ -42,7 +44,10 @@ public class GroundManager : MonoBehaviour
             float yPos = groundList[groundList.Count - 1].transform.position.y + Random.Range(minYOffset, maxYOffset);
 
             ground = Instantiate(groundPrefab[Random.Range(0, groundPrefab.Length)], new Vector3(xPos, yPos), Quaternion.identity);
-            ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
+            
+            if (ground.GetComponent<SpriteRenderer>() != null)
+                ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
+
             groundList.Add(ground);
         }
     }
