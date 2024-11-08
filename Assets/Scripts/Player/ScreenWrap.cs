@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScreenWrap : MonoBehaviour
 {
+    [SerializeField] float xOffset;
     private Camera mainCamera;
     private float screenHalfWidth;
 
@@ -24,11 +25,11 @@ public class ScreenWrap : MonoBehaviour
         // 원래 위치 이동
         if (playerPosition.x < leftEdge)
         {
-            playerPosition.x = rightEdge;
+            playerPosition.x = rightEdge - xOffset;
         }
         else if (playerPosition.x > rightEdge)
         {
-            playerPosition.x = leftEdge;
+            playerPosition.x = leftEdge + xOffset;
         }
 
         transform.position = playerPosition;

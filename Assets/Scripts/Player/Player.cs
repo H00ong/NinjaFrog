@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject groundedCheck;
     [SerializeField] float groundedRadius = 0.2f;
     LayerMask groundLayer;
+    LayerMask trapLayer;
 
     [Header("Move Info")]
     public float moveSpeed = 10f;
@@ -51,8 +52,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-          StateMachine.InitializeState(JumpState);
-          groundLayer = LayerMask.GetMask("Ground");
+        StateMachine.InitializeState(JumpState);
+        groundLayer = LayerMask.GetMask("Ground");
+        trapLayer = LayerMask.GetMask("Trap");
     }
 
     void Update()
@@ -92,7 +94,15 @@ public class Player : MonoBehaviour
         if(!Collider.enabled)
             return false;
 
-        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);   
+        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);
+    }
+
+    public bool TrapCheck() 
+    {
+        if (!Collider.enabled)
+            return false;
+
+        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, trapLayer);
     }
 
     private void OnDrawGizmos()

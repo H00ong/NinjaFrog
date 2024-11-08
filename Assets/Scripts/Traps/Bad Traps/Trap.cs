@@ -1,44 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
-    [SerializeField] Transform[] movePoints;
+    [SerializeField] protected float dieDelay;
 
-    int destinationPointIndex = 0;
-
-    void Start()
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        transform.position = new Vector2(movePoints[0].position.x, movePoints[0].position.y);
-    }
-
-    void Update()
-    {
-        MoveToDestinationPoints();
-    }
-
-    void MoveToDestinationPoints()
-    {
-        if (Vector2.Distance(movePoints[destinationPointIndex].position, transform.position) < .1f) 
+        if (collision.CompareTag("Player"))
         {
-            destinationPointIndex++;
-
-            if(destinationPointIndex == movePoints.Length)
-                destinationPointIndex = 0;
+            collision.GetComponent<Player>().Die();
         }
-
-        transform.position = Vector2.MoveTowards(transform.position, movePoints[destinationPointIndex].position, moveSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void Die() 
     {
-        if (collision.CompareTag("Player")) 
-        {
-            collision.GetComponent<Player>().Die();            
-        }
+        Destroy(gameObject, dieDelay);
     }
 }

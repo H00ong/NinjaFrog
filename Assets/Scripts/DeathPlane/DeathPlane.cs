@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DeathPlane : MonoBehaviour
+public class DeathPlane : Trap
 {
     [SerializeField] Vector3 offset;
 
@@ -13,7 +13,7 @@ public class DeathPlane : MonoBehaviour
         transform.position = _lowestGround.position + offset;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) 
         {
