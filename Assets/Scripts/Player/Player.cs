@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] GameObject groundedCheck;
+    [SerializeField] GameObject helicopter;
     [SerializeField] float groundedRadius = 0.2f;
     LayerMask groundLayer;
     LayerMask trapLayer;
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 10f;
     public float doubleJumpForce = 30f;
+    public float flySpeed = 15f;
+    public float flyTime = 5f;
 
     public float xBoundary = 3.1f;
 
@@ -22,7 +25,7 @@ public class Player : MonoBehaviour
     public PlayerFallState FallState { get; private set; }
     public PlayerDeadState DeadState { get; private set; }
     public PlayerDoubleJumpState DoubleJumpState { get; private set; }
-    public PlayerIdleState IdleState { get; private set; }
+    public PlayerFlyState FlyState { get; private set; }
     #endregion
 
     #region Components
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour
     #endregion
 
     public int FacingDir { get; private set; } = 1;
+    public bool IsFlying { get; set; } = false;
 
     void Awake()
     {
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour
         FallState = new PlayerFallState(this, StateMachine, "Fall");
         DeadState = new PlayerDeadState(this, StateMachine, "Dead");
         DoubleJumpState = new PlayerDoubleJumpState(this, StateMachine, "Double Jump");
-        IdleState = new PlayerIdleState(this, StateMachine, "Idle");
+        FlyState = new PlayerFlyState(this, StateMachine, "Fly");
 
         Rb           = GetComponent<Rigidbody2D>();
         Collider     = GetComponent<CapsuleCollider2D>();
@@ -130,5 +134,15 @@ public class Player : MonoBehaviour
     public void DoubleJump() 
     {
         StateMachine.ChangeState(DoubleJumpState);
+    }
+
+    public void Fly() 
+    {
+        StateMachine.ChangeState(FlyState);
+    }
+
+    public void HelicopterActive(bool _flying)
+    {
+        helicopter.SetActive(_flying);
     }
 }

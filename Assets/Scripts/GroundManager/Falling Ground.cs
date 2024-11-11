@@ -22,7 +22,9 @@ public class FallingGround : MonoBehaviour
     {
         anim.SetTrigger("Fall");
         yield return new WaitForSeconds(fallTime);
+        
         Destroy(gameObject, 3f);
+
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().gravityScale = 1f;
     }

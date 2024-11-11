@@ -44,7 +44,7 @@ public class RockHead : Trap
         if (collision.CompareTag("Player"))
         {
             if (collision.GetComponent<Player>().TrapCheck())
-                this.Die();
+                Die();
             else
                 collision.GetComponent<Player>().Die();
         }
