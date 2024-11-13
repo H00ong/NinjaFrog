@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject groundedCheck;
     [SerializeField] GameObject helicopter;
     [SerializeField] float groundedRadius = 0.2f;
+    
     LayerMask groundLayer;
     LayerMask trapLayer;
 
@@ -93,32 +94,30 @@ public class Player : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    public bool JumpCheck()
+    public bool LayerCheck(LayerMask _layer)
     {
         if (!Collider.enabled)
             return false;
 
-        RaycastHit2D hit = Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, groundLayer);
-
-        if (hit.collider != null)
+        if (_layer == groundLayer)
         {
-            FallingGround fallingGround = hit.collider.GetComponent<FallingGround>();
-            if (fallingGround != null)
+            RaycastHit2D hit = Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
+
+            if (hit.collider != null)
             {
-                fallingGround.Fall();
+                FallingGround fallingGround = hit.collider.GetComponent<FallingGround>();
+                if (fallingGround != null)
+                {
+                    fallingGround.Fall();
+                }
+                return true; // 충돌이 있는 경우 true 반환
             }
-            return true; // 충돌이 있는 경우 true 반환
+            return false; // 충돌이 없는 경우 false 반환
         }
-
-        return false; // 충돌이 없는 경우 false 반환
-    }
-
-    public bool TrapCheck() 
-    {
-        if (!Collider.enabled)
-            return false;
-
-        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, trapLayer);
+        else
+        {
+            return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
+        }
     }
 
     private void OnDrawGizmos()

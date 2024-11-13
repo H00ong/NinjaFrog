@@ -28,7 +28,7 @@ public class PlayerState
 
     public virtual void Update()
     {
-        if (player.JumpCheck()) 
+        if (player.LayerCheck(LayerMask.GetMask("Ground")))
         {
             stateMachine.ChangeState(player.JumpState);
             return;
