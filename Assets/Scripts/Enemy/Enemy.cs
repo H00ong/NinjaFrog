@@ -1,69 +1,77 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [Header("Move Info")]
-    [SerializeField] protected float moveSpeed = 3f;
+    [SerializeField] public float moveSpeed = 3f;
+    [SerializeField] public float dieJumpForce = 5f;
 
-    [SerializeField] float groundCheckDistance = .5f;
-
+    [Header("Ground Check")]
+    [SerializeField] public float groundCheckDistance = .5f;
     [SerializeField] protected Transform groundCheck;
+
+    [Header("Death Effect")]
+    [SerializeField] public float alphaValue = .7f; 
+    [SerializeField] public float alphaTime = .2f;
 
     protected LayerMask groundLayer;
     protected LayerMask enemyLayer;
 
-    protected Animator Anim;
-    protected Rigidbody2D Rb;
-    protected Collider2D Collider;
+    #region Components
+    public Animator Anim { get; private set; }
+    public Rigidbody2D Rb { get; private set; }
+    public Collider2D Collider { get; private set; }
+    public SpriteRenderer Sr { get; private set; }
+    #endregion
 
-    protected bool isLive = true;
+    #region StateMachine
+    
+    public EnemyStateMachine StateMachine { get; private set; }
 
-    protected int FacingDir { get; private set; }
+    #endregion
+
+    public int FacingDir { get; protected set; }
 
     protected virtual void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
         enemyLayer = LayerMask.GetMask("Enemy");
-        FacingDir = GetComponentInChildren<SpriteRenderer>().flipX ? 1 : -1;
-
+        
+        Sr = GetComponentInChildren<SpriteRenderer>();
         Anim = GetComponentInChildren<Animator>();
         Rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
+
+        FacingDir = Sr.flipX ? 1 : -1;
+        StateMachine = new EnemyStateMachine();
     }
 
     protected virtual void Update()
     {
-        if (!isLive) return;
-
-        if (!GroundCheck())
-        {
-            SetVelocity(0);
-            Flip();
-        }
-        else
-        {
-            SetVelocity(moveSpeed);
-        }
+        StateMachine.CurrentState.Update();
     }
 
-    protected virtual void Flip()
+    public virtual void Flip()
     {
+        SetVelocity(0);
         FacingDir = -FacingDir;
         transform.Rotate(0, 180, 0);
     }
 
-    protected void SetVelocity(float _xSpeed, float _ySpeed = 0f) 
+    public void SetVelocity(float _xSpeed, float _ySpeed = 0f) 
     {
         Rb.velocity = new Vector2(FacingDir * _xSpeed, _ySpeed);
     }
-
-    protected virtual bool GroundCheck()
+    
+    public virtual bool FlipCheck()
     {
-        return Physics2D.Linecast(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance), groundLayer);
+        // FlipCheck() == true -> Flip()
+        return !Physics2D.Linecast(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance), groundLayer);
     }
 
     protected virtual void OnDrawGizmos()
@@ -72,33 +80,36 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance));
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Player player = collision.GetComponent<Player>();
+            Player player = collision.gameObject.GetComponent<Player>();
 
             if (player.LayerCheck(_layer: enemyLayer))
             {
                 Die();
             }
-            else 
+            else
             {
                 player.Die();
             }
         }
     }
 
-    protected virtual void Die() 
+    public virtual void Die() { }
+
+    public virtual void DieEffect()
     {
-        Anim.SetBool("Die", true);
-        
-        isLive = false;
-        Collider.enabled = false;
+        StartCoroutine(Alpha());
+    }
 
-        Rb.gravityScale = 1f;
-        SetVelocity(0, 5);
+    protected virtual IEnumerator Alpha()
+    {
+        yield return new WaitForSeconds(alphaTime);
 
-        Destroy(gameObject, 3f);
+        Color color = Sr.color;
+        color.a = alphaValue;
+        Sr.color = color;
     }
 }
