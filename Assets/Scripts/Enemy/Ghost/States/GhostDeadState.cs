@@ -9,7 +9,7 @@ public class GhostDeadState : EnemyState
     public GhostDeadState(Enemy _Enemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Ghost _ghost) : base(_Enemy, _stateMachine, _animBoolName)
     {
         this.ghost = _ghost;
-    }
+    }   
 
     public override void Enter()
     {

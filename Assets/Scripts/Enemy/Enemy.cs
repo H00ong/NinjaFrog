@@ -47,7 +47,11 @@ public class Enemy : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
 
-        FacingDir = Sr.flipX ? 1 : -1;
+        if (Sr.flipX)
+            FacingDir = -1;
+        else
+            FacingDir = 1;
+
         StateMachine = new EnemyStateMachine();
     }
 
