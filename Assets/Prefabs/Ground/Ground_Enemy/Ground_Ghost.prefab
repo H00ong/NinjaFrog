@@ -253,7 +253,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1275063221310047648}
   alphaValue: 0.7
   alphaTime: 0.2
-  idleTime: 2
+  idleTime: 1.5
   ghostingTime: 0.5
   xPosRange: 0.5
 --- !u!1 &4600217426244927762

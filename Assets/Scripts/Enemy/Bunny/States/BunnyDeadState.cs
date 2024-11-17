@@ -12,10 +12,10 @@ public class BunnyDeadState : EnemyState
 
     public override void Enter()
     {
-        base.Enter();
-
-        bunny.SetVelocity(0, bunny.dieJumpForce);
         bunny.Collider.enabled = false;
+        bunny.SetVelocity(0, bunny.dieJumpForce);
+
+        base.Enter();
 
         bunny.DieEffect();
     }

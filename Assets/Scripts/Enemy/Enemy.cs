@@ -8,16 +8,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Move Info")]
-    [SerializeField] public float moveSpeed = 3f;
-    [SerializeField] public float dieJumpForce = 5f;
+    public float moveSpeed = 3f;
+    public float dieJumpForce = 5f;
 
     [Header("Ground Check")]
-    [SerializeField] public float groundCheckDistance = .5f;
+    public float groundCheckDistance = .3f;
     [SerializeField] protected Transform groundCheck;
 
     [Header("Death Effect")]
-    [SerializeField] public float alphaValue = .7f; 
-    [SerializeField] public float alphaTime = .2f;
+    public float alphaValue = .7f; 
+    public float alphaTime = .2f;
 
     protected LayerMask groundLayer;
     protected LayerMask enemyLayer;
@@ -47,11 +47,7 @@ public class Enemy : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
 
-        if (Sr.flipX)
-            FacingDir = -1;
-        else
-            FacingDir = 1;
-
+        FacingDir = Sr.flipX ? 1 : -1;
         StateMachine = new EnemyStateMachine();
     }
 
@@ -96,6 +92,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+                SetVelocity(0, 0);
                 player.Die();
             }
         }

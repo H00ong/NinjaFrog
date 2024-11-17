@@ -13,10 +13,11 @@ public class GhostDeadState : EnemyState
 
     public override void Enter()
     {
+        ghost.Collider.enabled = false;
+        ghost.SetVelocity(0, ghost.dieJumpForce);
+
         base.Enter();
 
-        ghost.SetVelocity(0, ghost.dieJumpForce);
-        ghost.Collider.enabled = false;
 
         ghost.DieEffect();
     }

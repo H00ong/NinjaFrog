@@ -12,10 +12,10 @@ public class ChameleonDeadState : EnemyState
 
     public override void Enter()
     {
-        base.Enter();
-
         chameleon.Collider.enabled = false;
         chameleon.SetVelocity(0, chameleon.dieJumpForce);
+
+        base.Enter();
 
         chameleon.DieEffect();
     }
