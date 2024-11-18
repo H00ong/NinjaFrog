@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
-    public int FacingDir { get; protected set; }
+    public int FacingDir { get; protected set; } // 1: Right, -1: Left
 
     protected virtual void Start()
     {
@@ -71,13 +71,19 @@ public class Enemy : MonoBehaviour
     public virtual bool FlipCheck()
     {
         // FlipCheck() == true -> Flip()
-        return !Physics2D.Linecast(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance), groundLayer);
+        if (groundCheck != null)
+            return !Physics2D.Linecast(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance), groundLayer);
+        else
+            return false;
     }
 
     protected virtual void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance));
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance));
+        }
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

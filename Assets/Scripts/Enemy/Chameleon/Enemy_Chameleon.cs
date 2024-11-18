@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy_Chameleon : Enemy
 {
-    [SerializeField] public float idleTime = 2f;
+    [Header("Move details")]
+    public float idleTime = 2f;
+
     public bool animationTrigger = false;
 
     #region States

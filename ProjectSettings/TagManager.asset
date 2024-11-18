@@ -15,8 +15,8 @@ TagManager:
   - Trampline
   - Enemy
   - Trap
-  - 
-  - 
+  - FlyingEnemy
+  - Player
   - 
   - 
   - 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_Turtle : Enemy
 {
+    [Header("Move details")]
     public float idleTime = 3f;
     public float moveTime = 5f;
     public float spikeInTime = .5f;

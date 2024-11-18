@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Enemy_Bunny : Enemy
 {
-    [SerializeField] public float jumpForce = 5f;
-    [SerializeField] public float idleTime = 2f;
-    [SerializeField] public float groundRadius = 0.2f;
+    [Header("Move details")]
+    public float jumpForce = 5f;
+    public float idleTime = 2f;
+    [Header("Jump Info")]
+    public float groundRadius = 0.2f;
     [SerializeField] Transform bunnyFootPos;
 
     #region States

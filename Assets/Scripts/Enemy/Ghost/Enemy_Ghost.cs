@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_Ghost : Enemy 
 {
+    [Header("Move details")]
     public float idleTime = 2f;
     public float ghostingTime = .3f;
     public float xPosRange = .5f;
