@@ -22,20 +22,7 @@ public class BlueBirdPatrolState : EnemyState
             blueBird.destinationPointIndex = 0;
         }
 
-        if (blueBird.transform.position.x <= blueBird.patrolPoints[blueBird.destinationPointIndex].position.x)
-        {
-            if (blueBird.FacingDir == -1)
-            {
-                blueBird.Flip();
-            }
-        }
-        else
-        {
-            if (blueBird.FacingDir == 1)
-            {
-                blueBird.Flip();
-            }
-        }
+        blueBird.FlyFlipCheck(blueBird.patrolPoints[blueBird.destinationPointIndex]);
 
         blueBird.SetVelocity(blueBird.patrolSpeed);
     }

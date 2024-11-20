@@ -17,7 +17,7 @@ public class BlueBirdDeadState : EnemyState
         blueBird.Collider.enabled = false;
         blueBird.SetVelocity(0, blueBird.dieJumpForce);
 
-        blueBird.Rb.gravityScale = 1;
+        rb.gravityScale = 1;
 
         blueBird.DieEffect();
     }

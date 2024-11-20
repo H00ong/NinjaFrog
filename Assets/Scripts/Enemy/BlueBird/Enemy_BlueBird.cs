@@ -41,7 +41,7 @@ public class Enemy_BlueBird : Enemy
         IdleState = new BlueBirdIdleState(this, StateMachine, "Move", this);
         FollowState = new BlueBirdFollowState(this, StateMachine, "Move", this);
         ReturnState = new BlueBirdReturnState(this, StateMachine, "Move", this);
-        DeadState = new BlueBirdDeadState(this, StateMachine, "Move", this);
+        DeadState = new BlueBirdDeadState(this, StateMachine, "Dead", this);
 
         defaultBlueBirdYPos = transform.position.y;
 
@@ -73,6 +73,24 @@ public class Enemy_BlueBird : Enemy
             {
                 SetVelocity(0, 0);
                 player.Die();
+            }
+        }
+    }
+
+    public void FlyFlipCheck(Transform _target)
+    {
+        if (transform.position.x < _target.position.x)
+        {
+            if (FacingDir == -1)
+            {
+                Flip();
+            }
+        }
+        else
+        {
+            if (FacingDir == 1)
+            {
+                Flip();
             }
         }
     }

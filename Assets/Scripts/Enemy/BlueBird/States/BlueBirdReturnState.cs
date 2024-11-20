@@ -17,22 +17,7 @@ public class BlueBirdReturnState : EnemyState
         blueBird.isReturning = true;
         lastFlip = false;
 
-        if (blueBird.transform.position.x <= blueBird.patrolPoints[blueBird.destinationPointIndex].position.x)
-        {
-            if (blueBird.FacingDir == -1)
-            {
-                blueBird.Flip();
-                lastFlip = true;
-            }
-        }
-        else 
-        {
-            if (blueBird.FacingDir == 1)
-            {
-                blueBird.Flip();
-                lastFlip = true;
-            }
-        }
+        blueBird.FlyFlipCheck(blueBird.patrolPoints[blueBird.destinationPointIndex]);
 
         base.Enter();
     }

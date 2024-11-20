@@ -29,20 +29,7 @@ public class BlueBirdFollowState : EnemyState
     {
         base.Update();
 
-        if (blueBird.transform.position.x < player.position.x)
-        {
-            if (blueBird.FacingDir == -1)
-            {
-                blueBird.Flip();
-            }
-        }
-        else 
-        {
-            if (blueBird.FacingDir == 1) 
-            {
-                blueBird.Flip();
-            }
-        }
+        blueBird.FlyFlipCheck(player);
         
         blueBird.transform.position = Vector2.MoveTowards(blueBird.transform.position, blueBird.player.position, blueBird.followingSpeed * Time.deltaTime);
 
@@ -55,7 +42,7 @@ public class BlueBirdFollowState : EnemyState
 
         if (distance > blueBird.returnDistance || playerDistance > blueBird.returnDistance)
         {
-            stateMachine.ChangeState(blueBird.ReturnState);
+            stateMachine.ChangeState(blueBird.ReturnState); 
         }
     }
 }

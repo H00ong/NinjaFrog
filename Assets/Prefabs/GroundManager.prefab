@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8757211701699078086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150711328122469998}
+  - component: {fileID: 7560528676571392714}
+  m_Layer: 0
+  m_Name: GroundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150711328122469998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757211701699078086}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7560528676571392714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757211701699078086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693eee1e0087c1c4281e7515d2ee4f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateYOffset: 8
+  maxXOffset: 3.5
+  maxYOffset: 2.4
+  minXOffset: 1.3
+  minYOffset: 1.5
+  groundCount: 15
+  groundPrefab:
+  - {fileID: 608042087023250548, guid: 2398661dfb3c1fe48aecdbd4e70393e6, type: 3}
+  - {fileID: 8989898944132725372, guid: 423a66fcf818b404aa7a13d93f1cc045, type: 3}
+  - {fileID: 2994016632572515137, guid: 405fe6703ba58e04d9a61800fb38054e, type: 3}
+  - {fileID: 8656639719171782565, guid: 1c594874fb9f4674da722b1acc6b089a, type: 3}
+  - {fileID: 396116794836444620, guid: 4037d686565a97b49b50f8eed3122697, type: 3}
+  - {fileID: 638727218159186696, guid: c25fce30e0872224882960cd3a53ef1e, type: 3}
+  - {fileID: 312653561919615723, guid: 096bdf5782a78cd4d925f8eda7f955da, type: 3}
+  - {fileID: 396116794836444620, guid: e01bb4d80939cdd4ea881b77fe4e8f4d, type: 3}
+  - {fileID: 5353161041548084551, guid: 163ac5f69cb4c5246b7d26ea92ad0fcb, type: 3}
+  - {fileID: 7114350542538877992, guid: 0525d863e96afbe49af2b6d5dd4d1c3a, type: 3}
+  - {fileID: 4600217426244927762, guid: 6e7ce1dfd0de7614c95ef3138efec66a, type: 3}
+  - {fileID: 1295667844328733927, guid: 3f05a2637843c3f4d859946918c90e88, type: 3}
+  - {fileID: 7950028358927814030, guid: 1aa650b197fb7044f97f92b958cc62cf, type: 3}
+  - {fileID: 6012908942402168114, guid: 219471891161e7b448bafe8db90f6e96, type: 3}
+  deathPlane: {fileID: 0}
+  groundSprites:
+  - {fileID: -409511399, guid: be44d87c2e55ff24ba82db23e275d537, type: 3}
+  - {fileID: -1427077047, guid: be44d87c2e55ff24ba82db23e275d537, type: 3}
+  - {fileID: 871544569, guid: be44d87c2e55ff24ba82db23e275d537, type: 3}
+  groundList: []
