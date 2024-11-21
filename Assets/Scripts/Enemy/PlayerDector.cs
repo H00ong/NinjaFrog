@@ -17,15 +17,36 @@ public class PlayerDector : MonoBehaviour
                 blueBird.playerDetect = true;
                 blueBird.player = collision.transform;
             }
-            else if(enemy is Enemy_Bat) 
+            else if (enemy is Enemy_Bat)
             {
                 Enemy_Bat bat = enemy as Enemy_Bat;
 
-                if (bat.canFollow) 
+                if (bat.canFollow)
                 {
                     bat.playerDetect = true;
                     bat.player = collision.transform;
                 }
+            }
+            else if (enemy is Enemy_Plant) 
+            {
+                Enemy_Plant plant = enemy as Enemy_Plant;
+
+                plant.playerDetect = true;
+                plant.player = collision.transform;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Enemy_Plant plant = GetComponentInParent<Enemy_Plant>();
+
+        if (plant != null) 
+        {
+            if (collision.CompareTag("Player")) 
+            {
+                plant.player = null;
+                plant.playerDetect = false;
             }
         }
     }
