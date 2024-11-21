@@ -30,7 +30,7 @@ public class PlayerState
     {
         if (player.LayerCheck(LayerMask.GetMask("Ground")))
         {
-            stateMachine.ChangeState(player.JumpState);
+            player.Jump();
             return;
         }
 

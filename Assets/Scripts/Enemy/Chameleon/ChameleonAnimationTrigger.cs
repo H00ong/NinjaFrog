@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class ChameleonAnimationTrigger : MonoBehaviour
 {
-    [SerializeField] private Enemy_Chameleon enemyChameleon;
+    Enemy_Chameleon enemyChameleon;
     [SerializeField] private Transform attackTrigger;
+
+    private void Start()
+    {
+        enemyChameleon = GetComponentInParent<Enemy_Chameleon>();
+    }
 
     public void SetScale(float _xScale) 
     {

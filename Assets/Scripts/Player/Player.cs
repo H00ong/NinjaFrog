@@ -144,4 +144,9 @@ public class Player : MonoBehaviour
     {
         helicopter.SetActive(_flying);
     }
+
+    public void Jump() 
+    {
+        StateMachine.ChangeState(JumpState);
+    }
 }
