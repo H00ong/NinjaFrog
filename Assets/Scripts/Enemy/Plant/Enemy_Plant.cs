@@ -46,6 +46,7 @@ public class Enemy_Plant : Enemy
 
     public override void Die()
     {
+        base.Die();
         Destroy(gameObject, 3f);
         StateMachine.ChangeState(DeadState);
     }

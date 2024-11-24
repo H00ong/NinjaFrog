@@ -24,7 +24,7 @@ public class GroundManager : MonoBehaviour
     {
         player = PlayerManager.instance.player.transform;
 
-        GameObject ground = Instantiate(groundPrefab[0], new Vector3(0, -1), Quaternion.identity);
+        GameObject ground = Instantiate(groundPrefab[0], new Vector3(-0.3f, -1), Quaternion.identity);
         
         if(ground.GetComponent<SpriteRenderer>() != null)
             ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];

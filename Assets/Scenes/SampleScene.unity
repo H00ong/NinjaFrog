@@ -127,6 +127,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8478497588373261585, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
   m_PrefabInstance: {fileID: 1926118707306973740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &525047477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525047478}
+  - component: {fileID: 525047479}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525047478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525047477}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.81, y: 1.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525047479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525047477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6a83e07e8a37f4cbaca8488e2717f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightScoreModifier: 1000
+  enemyScoreModifier: 300
+  score: 0
 --- !u!1 &932731587
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,29 +766,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1888950196008403205, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
-      propertyPath: flySpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888950196008403205, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
-      propertyPath: groundedRadius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888950196008403205, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
-      propertyPath: doubleJumpForce
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6387453583399775712, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.407
+    - target: {fileID: 3134022688089874017, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8478497588373261585, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 8478497588373261585, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.32
       objectReference: {fileID: 0}
     - target: {fileID: 8478497588373261585, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -778,10 +813,6 @@ PrefabInstance:
     - target: {fileID: 8910319063524734363, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8910319063524734363, guid: 6f77fd0e48f64f847ab54cb0f1b2af0c, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -841,24 +872,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1393638759}
     - target: {fileID: 7560528676571392714, guid: 6e0c83e4531c7714bbc724df1be2dd92, type: 3}
-      propertyPath: groundPrefab.Array.size
-      value: 16
+      propertyPath: minXOffset
+      value: 1.7
       objectReference: {fileID: 0}
-    - target: {fileID: 7560528676571392714, guid: 6e0c83e4531c7714bbc724df1be2dd92, type: 3}
-      propertyPath: groundPrefab.Array.data[14]
-      value: 
-      objectReference: {fileID: 3930021892328612583, guid: 6edbcf563c1147b46af86e39db7c5e1f, type: 3}
-    - target: {fileID: 7560528676571392714, guid: 6e0c83e4531c7714bbc724df1be2dd92, type: 3}
-      propertyPath: groundPrefab.Array.data[15]
-      value: 
-      objectReference: {fileID: 7458793145858907099, guid: a28f4dc565ec0c44fb3d818a8c3ea44b, type: 3}
     - target: {fileID: 8757211701699078086, guid: 6e0c83e4531c7714bbc724df1be2dd92, type: 3}
       propertyPath: m_Name
       value: GroundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8757211701699078086, guid: 6e0c83e4531c7714bbc724df1be2dd92, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -873,3 +892,4 @@ SceneRoots:
   - {fileID: 1926118707306973740}
   - {fileID: 2292844900783590281}
   - {fileID: 1393638757}
+  - {fileID: 525047478}

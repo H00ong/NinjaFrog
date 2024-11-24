@@ -27,6 +27,7 @@ public class Enemy_Slime : Enemy
 
     public override void Die()
     {
+        base.Die();
         Destroy(gameObject, 3f);
         StateMachine.ChangeState(DeadState);
     }

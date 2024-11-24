@@ -104,7 +104,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void Die() { }
+    public virtual void Die() 
+    {
+        ScoreManager.instance.AddEnemyScore();
+    }
 
     public virtual void DieEffect()
     {

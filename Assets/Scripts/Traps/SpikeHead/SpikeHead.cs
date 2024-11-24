@@ -13,7 +13,6 @@ public class SpikeHead : Trap
     bool isUp = false;
     float defaultGravityScale;
     
-    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,5 +47,17 @@ public class SpikeHead : Trap
     {
         yield return new WaitForSeconds(upTimeDelay);
         isUp = true;
+    }
+
+    protected override void Die()
+    {
+        Destroy(gameObject, dieDelay);
+
+        ScoreManager.instance.AddEnemyScore();
+
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
+        rb.velocity = new Vector2(0, 10);
+        rb.gravityScale = defaultGravityScale;
     }
 }

@@ -72,6 +72,7 @@ public class Enemy_Bat : Enemy
 
     public override void Die()
     {
+        base.Die();
         Destroy(gameObject, 3f);
         StateMachine.ChangeState(DeadState);
     }

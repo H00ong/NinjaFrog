@@ -13,7 +13,6 @@ public class RockHead : Trap
     bool isUp = false;
     float defaultGravityScale;
     
-    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -66,8 +65,10 @@ public class RockHead : Trap
     {
         Destroy(gameObject, dieDelay);
 
-        gameObject.GetComponent<Collider2D>().enabled = false;
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
+        ScoreManager.instance.AddEnemyScore();
+
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.7f);
         rb.velocity = new Vector2(0, 10);
         rb.gravityScale = defaultGravityScale;
     }
