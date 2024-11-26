@@ -8,7 +8,7 @@ public class ScreenWrap : MonoBehaviour
     private Camera mainCamera;
     private float screenHalfWidth;
 
-    private void Start()
+    private void OnEnable()
     {
         mainCamera = Camera.main;
         screenHalfWidth = mainCamera.orthographicSize * mainCamera.aspect;
@@ -16,6 +16,9 @@ public class ScreenWrap : MonoBehaviour
 
     private void Update()
     {
+        if (mainCamera == null) 
+            mainCamera = Camera.main;
+
         Vector3 playerPosition = transform.position;
 
         // 화면 경계 계산

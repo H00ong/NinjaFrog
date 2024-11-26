@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] Vector3 offset;
+    [SerializeField] GameObject escMenu;
+    [SerializeField] GameObject gameOverMenu;
+
+    private void OnEnable()
+    {
+        player = PlayerManager.instance.player.transform;
+    }
 
     void LateUpdate()
     {
         transform.position = new Vector3(0, player.position.y, transform.position.z) + offset;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameOverMenu.activeSelf)
+        {
+            if (escMenu.activeSelf)
+            {
+                escMenu.SetActive(false);
+            }
+            else 
+            {
+                escMenu.SetActive(true);
+            }
+        }
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   generateYOffset: 8
   maxXOffset: 3.5
   maxYOffset: 2.5
-  minXOffset: 1.5
+  minXOffset: 1.7
   minYOffset: 1.7
   groundCount: 15
   groundPrefab:

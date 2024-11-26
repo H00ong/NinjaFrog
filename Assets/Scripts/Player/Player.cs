@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Parts")]
     [SerializeField] GameObject groundedCheck;
     [SerializeField] GameObject helicopter;
     [SerializeField] float groundedRadius = 0.2f;
-    
-    LayerMask groundLayer;
-    LayerMask trapLayer;
 
     [Header("Move Info")]
     public float moveSpeed = 10f;
@@ -17,8 +15,15 @@ public class Player : MonoBehaviour
     public float doubleJumpForce = 30f;
     public float flySpeed = 15f;
     public float flyTime = 5f;
-
     public float xBoundary = 3.1f;
+
+    public float gameOverAppearTime = 2f;
+
+    LayerMask groundLayer;
+    LayerMask trapLayer;
+
+    public GameObject gameOverMenu;
+
 
     #region States
     public PlayerStateMachine StateMachine { get; private set; }
@@ -53,11 +58,19 @@ public class Player : MonoBehaviour
 
         Anim           = GetComponentInChildren<Animator>();
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        // DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
+        if (Time.timeScale == 0) 
+        {
+            Time.timeScale = 1f;
+        }
+
         StateMachine.InitializeState(JumpState);
+
         groundLayer = LayerMask.GetMask("Ground");
         trapLayer = LayerMask.GetMask("Trap");
     }

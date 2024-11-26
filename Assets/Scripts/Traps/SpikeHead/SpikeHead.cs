@@ -41,6 +41,13 @@ public class SpikeHead : Trap
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+
+        if (collision.transform == targetGround)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = Vector2.zero;
+            StartCoroutine(Up());
+        }
     }
 
     IEnumerator Up() 

@@ -20,11 +20,11 @@ public class GroundManager : MonoBehaviour
 
     public List<GameObject> groundList = new List<GameObject>();
 
-    private void Awake()
+    private void Start()
     {
         player = PlayerManager.instance.player.transform;
 
-        GameObject ground = Instantiate(groundPrefab[0], new Vector3(-0.3f, -1), Quaternion.identity);
+        GameObject ground = Instantiate(groundPrefab[0], new Vector3(-0.3f, -1), Quaternion.identity, gameObject.transform);
         
         if(ground.GetComponent<SpriteRenderer>() != null)
             ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
@@ -33,6 +33,7 @@ public class GroundManager : MonoBehaviour
 
         CreateGround(groundCount - 1);
     }
+
 
     private void CreateGround(int _count = 1)
     {
@@ -43,7 +44,7 @@ public class GroundManager : MonoBehaviour
             float xPos = groundList[groundList.Count - 1].transform.position.x > 0 ? Random.Range(-maxXOffset, -minXOffset) : Random.Range(minXOffset, maxXOffset);
             float yPos = groundList[groundList.Count - 1].transform.position.y + Random.Range(minYOffset, maxYOffset);
 
-            ground = Instantiate(groundPrefab[Random.Range(0, groundPrefab.Length)], new Vector3(xPos, yPos), Quaternion.identity);
+            ground = Instantiate(groundPrefab[Random.Range(0, groundPrefab.Length)], new Vector3(xPos, yPos), Quaternion.identity, gameObject.transform);
             
             if (ground.GetComponent<SpriteRenderer>() != null)
                 ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];

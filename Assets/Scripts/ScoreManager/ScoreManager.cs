@@ -10,11 +10,11 @@ public class ScoreManager : MonoBehaviour
     [Header("Score Info")]
     [SerializeField] int heightScoreModifier = 100;
     [SerializeField] int enemyScoreModifier = 300;
-    public int score = 0;
+    public int Score { get; private set; } = 0;
+    public int HighestScore { get; private set; } = 0;
 
     float highestYpos = 0;
     float PlayerYpos = 0;
-    int highestScore = 0;
 
     private void Awake()
     {
@@ -27,42 +27,41 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        highestScore = PlayerPrefs.GetInt("highScore", 0);
+        HighestScore = PlayerPrefs.GetInt("highScore");
     }
 
     void Start()
     {
-        score = 0;
+        Score = 0;
     }
 
     private void Update()
     {
         PlayerYpos = PlayerManager.instance.player.transform.position.y;
 
-        if (PlayerYpos > highestYpos)
+        if (PlayerYpos - highestYpos >= 1)
         {
-            float modifier = PlayerYpos - highestYpos;
             highestYpos = PlayerYpos;
 
-            AddScore(Mathf.RoundToInt(modifier * heightScoreModifier));
+            AddScore(heightScoreModifier);
         }
     }
 
     public void AddScore(int _scoreModifier)
     {
-        score += _scoreModifier;
+        Score += _scoreModifier;
     }
 
     public void AddEnemyScore()
     {
-        score += enemyScoreModifier;
+        Score += enemyScoreModifier;
     }
 
     public bool UpdateHighestScore() 
     {
-        if (score > highestScore) 
+        if (Score > HighestScore) 
         {
-            PlayerPrefs.SetInt("highScore", score);
+            PlayerPrefs.SetInt("highScore", Score);
             return true;
         }
         return false;

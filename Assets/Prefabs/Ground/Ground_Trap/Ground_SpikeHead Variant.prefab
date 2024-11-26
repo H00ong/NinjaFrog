@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1707966018404913203}
   - component: {fileID: 6281184027765604720}
   - component: {fileID: 2285807928660999935}
-  - component: {fileID: 4811285910254968354}
+  - component: {fileID: 5608277868222538864}
   m_Layer: 8
   m_Name: SpikeHead
   m_TagString: Untagged
@@ -190,7 +190,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4811285910254968354
+--- !u!114 &5608277868222538864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7695449359669646595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d99e85aa388f04aafc220c65135b35, type: 3}
+  m_Script: {fileID: 11500000, guid: affcd788b9ea8074ab138363ed5001c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dieDelay: 3
