@@ -28,6 +28,12 @@ public class PlayerState
 
     public virtual void Update()
     {
+        if (player.flashCount > 0 && Input.GetKeyDown(KeyCode.Space) && !player.IsFlying && !player.IsFlashing) 
+        {
+            stateMachine.ChangeState(player.FlashState);
+            return;
+        }
+
         if (player.LayerCheck(LayerMask.GetMask("Ground")))
         {
             player.Jump();
@@ -41,7 +47,9 @@ public class PlayerState
         if (rb.velocity.y < 0) 
         {
             stateMachine.ChangeState(player.FallState);
+            return;
         }
+
     }
 
     public virtual void Exit()

@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] GameObject escMenu;
     [SerializeField] GameObject gameOverMenu;
 
-    private void OnEnable()
+    private void Start()
     {
         player = PlayerManager.instance.player.transform;
     }

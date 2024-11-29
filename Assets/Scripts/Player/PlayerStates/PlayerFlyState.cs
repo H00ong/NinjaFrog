@@ -19,7 +19,7 @@ public class PlayerFlyState : PlayerState
 
 
         player.IsFlying = true;
-        player.HelicopterActive(true);
+        player.HelicopterActivate(true);
 
         player.SetVelocity(rb.velocity.x, player.flySpeed);
 
@@ -35,7 +35,7 @@ public class PlayerFlyState : PlayerState
         base.Exit();
 
         player.IsFlying = false;
-        player.HelicopterActive(false);
+        player.HelicopterActivate(false);
 
         player.SetVelocity(rb.velocity.x, 0);
        

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4693293446364967262}
   - component: {fileID: 6262095976844803901}
   - component: {fileID: 2864054457749579186}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spike0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 563753422507791614}
   - component: {fileID: 9133973128199968331}
   - component: {fileID: 2289897461030036921}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spike4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 6665757804439913707}
   - component: {fileID: 5655623778531606415}
   - component: {fileID: 5677510758165007962}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spike3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 3454167565895960248}
   - component: {fileID: 1451080311431730863}
   - component: {fileID: 3861377338799283319}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6217980309677278839}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 1304299515920665832}
   - component: {fileID: 717302831773789380}
   - component: {fileID: 6407614044516921855}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spike5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 7242115872233600788}
   - component: {fileID: 1860424512418347633}
   - component: {fileID: 6891368363332143348}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Spike1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

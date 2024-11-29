@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject groundedCheck;
     [SerializeField] GameObject helicopter;
     [SerializeField] float groundedRadius = 0.2f;
+    [SerializeField] float flashGroundYOffset = .2f;
+    public GameObject gameOverMenu;
 
     [Header("Move Info")]
     public float moveSpeed = 10f;
@@ -16,14 +20,16 @@ public class Player : MonoBehaviour
     public float flySpeed = 15f;
     public float flyTime = 5f;
     public float xBoundary = 3.1f;
+    public int maxFlashCount = 3;
+    public int flashCount = 3;
 
     public float gameOverAppearTime = 2f;
 
     LayerMask groundLayer;
     LayerMask trapLayer;
 
-    public GameObject gameOverMenu;
-
+    public bool flashTrigger = false;
+    public bool animationFinished = false;
 
     #region States
     public PlayerStateMachine StateMachine { get; private set; }
@@ -32,17 +38,20 @@ public class Player : MonoBehaviour
     public PlayerDeadState DeadState { get; private set; }
     public PlayerDoubleJumpState DoubleJumpState { get; private set; }
     public PlayerFlyState FlyState { get; private set; }
+    public PlayerFlashState FlashState { get; private set; }
     #endregion
 
     #region Components
     public Animator Anim { get; private set; }
     public Rigidbody2D Rb { get; private set; }
     public CapsuleCollider2D Collider { get; private set; }
-    public SpriteRenderer SpriteRenderer { get; private set; }
+    public SpriteRenderer Sr { get; private set; }
+    public TrailRenderer Tr { get; private set; }
     #endregion
 
     public int FacingDir { get; private set; } = 1;
     public bool IsFlying { get; set; } = false;
+    public bool IsFlashing { get; set; } = false;
 
     void Awake()
     {
@@ -52,14 +61,14 @@ public class Player : MonoBehaviour
         DeadState = new PlayerDeadState(this, StateMachine, "Dead");
         DoubleJumpState = new PlayerDoubleJumpState(this, StateMachine, "Double Jump");
         FlyState = new PlayerFlyState(this, StateMachine, "Fly");
+        FlashState = new PlayerFlashState(this, StateMachine, "Flash");
 
         Rb           = GetComponent<Rigidbody2D>();
         Collider     = GetComponent<CapsuleCollider2D>();
 
         Anim           = GetComponentInChildren<Animator>();
-        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-        // DontDestroyOnLoad(gameObject);
+        Sr = GetComponentInChildren<SpriteRenderer>();
+        Tr = GetComponentInChildren<TrailRenderer>();
     }
 
     void Start()
@@ -73,6 +82,8 @@ public class Player : MonoBehaviour
 
         groundLayer = LayerMask.GetMask("Ground");
         trapLayer = LayerMask.GetMask("Trap");
+
+        flashCount = maxFlashCount;
     }
 
     void Update()
@@ -100,12 +111,7 @@ public class Player : MonoBehaviour
         }   
     }
 
-    public void Flip() 
-    {
-        FacingDir = -FacingDir;
-
-        transform.Rotate(0, 180, 0);
-    }
+    
 
     public bool LayerCheck(LayerMask _layer)
     {
@@ -138,6 +144,14 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(groundedCheck.transform.position, groundedRadius);
     }
 
+    #region Player Actions
+    public void Flip()
+    {
+        FacingDir = -FacingDir;
+
+        transform.Rotate(0, 180, 0);
+    }
+
     public void Die() 
     {
         StateMachine.ChangeState(DeadState);
@@ -152,14 +166,26 @@ public class Player : MonoBehaviour
     {
         StateMachine.ChangeState(FlyState);
     }
-
-    public void HelicopterActive(bool _flying)
-    {
-        helicopter.SetActive(_flying);
-    }
-
     public void Jump() 
     {
         StateMachine.ChangeState(JumpState);
+    }
+
+    public void Flash()
+    {
+        GameObject[] grounds = GameObject.FindGameObjectsWithTag("Ground");
+
+        GameObject[] higherGrounds = grounds
+            .Where(ground => ground.transform.position.y > transform.position.y)
+            .OrderBy(ground => ground.transform.position.y)
+            .ToArray();
+
+        transform.position = higherGrounds[1].transform.position + new Vector3(0, flashGroundYOffset, 0);
+    }
+    #endregion
+
+    public void HelicopterActivate(bool _flying)
+    {
+        helicopter.SetActive(_flying);
     }
 }
