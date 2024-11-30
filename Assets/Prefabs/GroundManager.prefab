@@ -49,7 +49,7 @@ MonoBehaviour:
   maxYOffset: 2.5
   minXOffset: 1.7
   minYOffset: 1.7
-  groundCount: 15
+  groundCount: 20
   groundPrefab:
   - {fileID: 608042087023250548, guid: 2398661dfb3c1fe48aecdbd4e70393e6, type: 3}
   - {fileID: 8989898944132725372, guid: 423a66fcf818b404aa7a13d93f1cc045, type: 3}
@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 6012908942402168114, guid: 219471891161e7b448bafe8db90f6e96, type: 3}
   - {fileID: 3930021892328612583, guid: 6edbcf563c1147b46af86e39db7c5e1f, type: 3}
   - {fileID: 7458793145858907099, guid: a28f4dc565ec0c44fb3d818a8c3ea44b, type: 3}
+  - {fileID: 5555452061329540561, guid: 7a1e40648742e4e4e90d332d2671f40d, type: 3}
   deathPlane: {fileID: 0}
   groundSprites:
   - {fileID: -409511399, guid: be44d87c2e55ff24ba82db23e275d537, type: 3}
