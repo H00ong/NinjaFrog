@@ -15,11 +15,13 @@ public class PlayerFlyState : PlayerState
     {
         base.Enter();
 
-        stateTimer = player.flyTime;
-
+        stateTimer = 0;
 
         player.IsFlying = true;
         player.HelicopterActivate(true);
+        
+        player.helicopterSlider.gameObject.SetActive(true);
+        player.helicopterSlider.value = 0;
 
         player.SetVelocity(rb.velocity.x, player.flySpeed);
 
@@ -48,14 +50,17 @@ public class PlayerFlyState : PlayerState
     {
         base.Update();
 
-        stateTimer -= Time.deltaTime;
+        stateTimer += Time.deltaTime;
 
-        if (stateTimer <= 0f)
+        if (stateTimer >= player.flyTime)
         {
+            player.helicopterSlider.value = 0;
+            player.helicopterSlider.gameObject.SetActive(false);
             stateMachine.ChangeState(player.FallState);
         }
         else 
         {
+            player.helicopterSlider.value = stateTimer / player.flyTime;
             player.SetVelocity(rb.velocity.x, player.flySpeed);
         }
     }

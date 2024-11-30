@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [Header("Player Parts")]
     [SerializeField] GameObject groundedCheck;
     [SerializeField] GameObject helicopter;
+    public Slider helicopterSlider;
     [SerializeField] float groundedRadius = 0.2f;
     [SerializeField] float flashGroundYOffset = .2f;
     public GameObject gameOverMenu;
@@ -152,6 +154,7 @@ public class Player : MonoBehaviour
         FacingDir = -FacingDir;
 
         transform.Rotate(0, 180, 0);
+        helicopterSlider.transform.Rotate(0, 180, 0);
     }
 
     public void Die() 
