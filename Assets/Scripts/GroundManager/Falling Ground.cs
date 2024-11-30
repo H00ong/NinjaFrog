@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FallingGround : MonoBehaviour
@@ -22,7 +21,7 @@ public class FallingGround : MonoBehaviour
     {
         anim.SetTrigger("Fall");
         yield return new WaitForSeconds(fallTime);
-        
+
         Destroy(gameObject, 3f);
 
         GetComponent<Collider2D>().enabled = false;

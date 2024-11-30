@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -27,7 +25,7 @@ public class CameraController : MonoBehaviour
             {
                 escMenu.SetActive(false);
             }
-            else 
+            else
             {
                 escMenu.SetActive(true);
             }

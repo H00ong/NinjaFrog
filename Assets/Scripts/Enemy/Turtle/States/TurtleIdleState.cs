@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurtleIdleState : EnemyState
@@ -29,7 +27,7 @@ public class TurtleIdleState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             stateMachine.ChangeState(turtle.SpikeOutState);
         }

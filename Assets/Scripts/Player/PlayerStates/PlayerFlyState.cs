@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFlyState : PlayerState
@@ -19,7 +17,7 @@ public class PlayerFlyState : PlayerState
 
         player.IsFlying = true;
         player.HelicopterActivate(true);
-        
+
         player.helicopterSlider.gameObject.SetActive(true);
         player.helicopterSlider.value = 0;
 
@@ -29,7 +27,7 @@ public class PlayerFlyState : PlayerState
 
         defaultGravityScale = rb.gravityScale;
         rb.gravityScale = 0f;
-        
+
     }
 
     public override void Exit()
@@ -40,7 +38,7 @@ public class PlayerFlyState : PlayerState
         player.HelicopterActivate(false);
 
         player.SetVelocity(rb.velocity.x, 0);
-       
+
         player.Collider.enabled = true;
 
         rb.gravityScale = defaultGravityScale;
@@ -58,7 +56,7 @@ public class PlayerFlyState : PlayerState
             player.helicopterSlider.gameObject.SetActive(false);
             stateMachine.ChangeState(player.FallState);
         }
-        else 
+        else
         {
             player.helicopterSlider.value = stateTimer / player.flyTime;
             player.SetVelocity(rb.velocity.x, player.flySpeed);

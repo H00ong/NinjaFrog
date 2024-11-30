@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BatIdleState : EnemyState
@@ -15,7 +13,7 @@ public class BatIdleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        
+
         stateTimer = bat.idleTime;
     }
 
@@ -28,14 +26,14 @@ public class BatIdleState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             bat.canFollow = true;
         }
 
-        if (bat.canFollow) 
+        if (bat.canFollow)
         {
-            if (bat.playerDetect) 
+            if (bat.playerDetect)
             {
                 stateMachine.ChangeState(bat.OutState);
             }

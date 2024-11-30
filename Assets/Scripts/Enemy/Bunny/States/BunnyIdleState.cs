@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BunnyIdleState : EnemyState
@@ -31,7 +29,7 @@ public class BunnyIdleState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer <= 0) 
+        if (stateTimer <= 0)
         {
             stateMachine.ChangeState(bunny.MoveState);
         }

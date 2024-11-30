@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BatReturnState : EnemyState
@@ -33,7 +31,7 @@ public class BatReturnState : EnemyState
 
         float distance = Vector2.Distance(bat.transform.position, bat.defaultPos.position);
 
-        if (distance < 0.1f) 
+        if (distance < 0.1f)
         {
             bat.transform.position = bat.defaultPos.position;
             stateMachine.ChangeState(bat.InState);

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class BatFollowState : EnemyState
 {
     Enemy_Bat bat;
-    
+
     float stateTimer = 0f;
     Transform player;
 
@@ -32,7 +29,7 @@ public class BatFollowState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             stateMachine.ChangeState(bat.ReturnState);
             return;

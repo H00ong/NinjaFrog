@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChameleonAnimationTrigger : MonoBehaviour
@@ -12,7 +10,7 @@ public class ChameleonAnimationTrigger : MonoBehaviour
         enemyChameleon = GetComponentInParent<Enemy_Chameleon>();
     }
 
-    public void SetScale(float _xScale) 
+    public void SetScale(float _xScale)
     {
         attackTrigger.localScale = new Vector3(_xScale, 1, 1);
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlueBirdPatrolState : EnemyState
@@ -17,7 +15,7 @@ public class BlueBirdPatrolState : EnemyState
 
         blueBird.destinationPointIndex++;
 
-        if (blueBird.destinationPointIndex >= blueBird.patrolPoints.Length) 
+        if (blueBird.destinationPointIndex >= blueBird.patrolPoints.Length)
         {
             blueBird.destinationPointIndex = 0;
         }
@@ -34,7 +32,7 @@ public class BlueBirdPatrolState : EnemyState
 
     public override void Update()
     {
-        if (blueBird.playerDetect && !blueBird.isReturning) 
+        if (blueBird.playerDetect && !blueBird.isReturning)
         {
             stateMachine.ChangeState(blueBird.FollowState);
             return;
@@ -42,7 +40,7 @@ public class BlueBirdPatrolState : EnemyState
 
         float destinationDistance = Vector2.Distance(enemy.transform.position, blueBird.patrolPoints[blueBird.destinationPointIndex].position);
 
-        if (destinationDistance <= 0.1f) 
+        if (destinationDistance <= 0.1f)
         {
             stateMachine.ChangeState(blueBird.IdleState);
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurtleAnimationTrigger : MonoBehaviour
@@ -11,7 +9,7 @@ public class TurtleAnimationTrigger : MonoBehaviour
         spikes.SetActive(true);
     }
 
-    public void DeactivateSpikes() 
+    public void DeactivateSpikes()
     {
         spikes.SetActive(false);
     }

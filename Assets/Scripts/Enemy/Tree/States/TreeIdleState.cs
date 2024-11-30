@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeIdleState : EnemyState
@@ -30,7 +28,7 @@ public class TreeIdleState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             stateMachine.ChangeState(tree.MoveState);
             return;

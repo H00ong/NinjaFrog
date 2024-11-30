@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDector : MonoBehaviour
@@ -27,7 +25,7 @@ public class PlayerDector : MonoBehaviour
                     bat.player = collision.transform;
                 }
             }
-            else if (enemy is Enemy_Plant) 
+            else if (enemy is Enemy_Plant)
             {
                 Enemy_Plant plant = enemy as Enemy_Plant;
 
@@ -41,9 +39,9 @@ public class PlayerDector : MonoBehaviour
     {
         Enemy_Plant plant = GetComponentInParent<Enemy_Plant>();
 
-        if (plant != null) 
+        if (plant != null)
         {
-            if (collision.CompareTag("Player")) 
+            if (collision.CompareTag("Player"))
             {
                 plant.player = null;
                 plant.playerDetect = false;

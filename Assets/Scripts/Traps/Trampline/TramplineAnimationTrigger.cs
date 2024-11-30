@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TramplineAnimationTrigger : MonoBehaviour
@@ -11,7 +9,7 @@ public class TramplineAnimationTrigger : MonoBehaviour
         player = PlayerManager.instance.player;
     }
 
-    void DoubleJumpTrigger() 
+    void DoubleJumpTrigger()
     {
         player.DoubleJump();
     }

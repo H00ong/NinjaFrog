@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TurtleDeadState : EnemyState
 {
     Enemy_Turtle turtle;
@@ -13,7 +9,7 @@ public class TurtleDeadState : EnemyState
     public override void Enter()
     {
         turtle.Collider.enabled = false;
-        
+
         base.Enter();
 
         turtle.SetVelocity(0, turtle.dieJumpForce);
@@ -27,6 +23,6 @@ public class TurtleDeadState : EnemyState
 
     public override void Update()
     {
-        
+
     }
 }

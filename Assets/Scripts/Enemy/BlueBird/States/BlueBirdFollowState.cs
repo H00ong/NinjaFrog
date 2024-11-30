@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class BlueBirdFollowState : EnemyState
@@ -30,7 +27,7 @@ public class BlueBirdFollowState : EnemyState
         base.Update();
 
         blueBird.FlyFlipCheck(player);
-        
+
         blueBird.transform.position = Vector2.MoveTowards(blueBird.transform.position, blueBird.player.position, blueBird.followingSpeed * Time.deltaTime);
 
         float distance1 = Vector2.Distance(blueBird.transform.position, blueBird.patrolPoints[0].position);
@@ -42,7 +39,7 @@ public class BlueBirdFollowState : EnemyState
 
         if (distance > blueBird.returnDistance || playerDistance > blueBird.returnDistance)
         {
-            stateMachine.ChangeState(blueBird.ReturnState); 
+            stateMachine.ChangeState(blueBird.ReturnState);
         }
     }
 }

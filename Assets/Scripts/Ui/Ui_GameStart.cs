@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,12 +15,12 @@ public class Ui_GameStart : MonoBehaviour
         highestScore.text = "Highest Score:\n" + PlayerPrefs.GetInt("highScore").ToString();
     }
 
-    public void OnStartButtonPressed() 
+    public void OnStartButtonPressed()
     {
         SceneManager.LoadScene("InGame");
     }
 
-    public void OnQuitButtonPressed() 
+    public void OnQuitButtonPressed()
     {
         Application.Quit();
     }

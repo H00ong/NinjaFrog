@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlantIdleState : EnemyState
 {
@@ -29,13 +26,13 @@ public class PlantIdleState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             stateMachine.ChangeState(plant.AttackState);
             return;
         }
 
-        if (plant.FlipCheck()) 
+        if (plant.FlipCheck())
         {
             plant.Flip();
         }

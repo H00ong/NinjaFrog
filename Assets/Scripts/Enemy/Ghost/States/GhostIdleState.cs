@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostIdleState : EnemyState
@@ -28,7 +26,7 @@ public class GhostIdleState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer <= 0) 
+        if (stateTimer <= 0)
         {
             stateMachine.ChangeState(ghost.DisappearState);
         }

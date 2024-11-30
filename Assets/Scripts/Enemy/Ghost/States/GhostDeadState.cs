@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class GhostDeadState : EnemyState
 {
     Enemy_Ghost ghost;
@@ -9,7 +5,7 @@ public class GhostDeadState : EnemyState
     public GhostDeadState(Enemy _Enemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Ghost _ghost) : base(_Enemy, _stateMachine, _animBoolName)
     {
         this.ghost = _ghost;
-    }   
+    }
 
     public override void Enter()
     {

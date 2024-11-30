@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class SlimeMoveState : EnemyState
 {
     Enemy_Slime slime;
-    
-    public SlimeMoveState(Enemy _Enemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Slime _slime) 
+
+    public SlimeMoveState(Enemy _Enemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Slime _slime)
         : base(_Enemy, _stateMachine, _animBoolName)
     {
         slime = _slime;

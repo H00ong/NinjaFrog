@@ -1,9 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml;
-using TreeEditor;
-using Unity.IO.LowLevel.Unsafe;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy_Bat : Enemy
@@ -52,7 +46,7 @@ public class Enemy_Bat : Enemy
         StateMachine.InitializeState(IdleState);
     }
 
-    public void FlyFlipCheck(Transform _player) 
+    public void FlyFlipCheck(Transform _player)
     {
         if (transform.position.x < _player.position.x)
         {
@@ -61,9 +55,9 @@ public class Enemy_Bat : Enemy
                 Flip();
             }
         }
-        else 
+        else
         {
-            if (FacingDir == 1) 
+            if (FacingDir == 1)
             {
                 Flip();
             }

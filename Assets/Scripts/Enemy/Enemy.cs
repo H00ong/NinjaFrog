@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -16,7 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Transform groundCheck;
 
     [Header("Death Effect")]
-    public float alphaValue = .7f; 
+    public float alphaValue = .7f;
     public float alphaTime = .2f;
 
     protected LayerMask groundLayer;
@@ -30,7 +26,7 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region StateMachine
-    
+
     public EnemyStateMachine StateMachine { get; private set; }
 
     #endregion
@@ -41,7 +37,7 @@ public class Enemy : MonoBehaviour
     {
         groundLayer = LayerMask.GetMask("Ground");
         enemyLayer = LayerMask.GetMask("Enemy");
-        
+
         Sr = GetComponentInChildren<SpriteRenderer>();
         Anim = GetComponentInChildren<Animator>();
         Rb = GetComponent<Rigidbody2D>();
@@ -63,11 +59,11 @@ public class Enemy : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    public void SetVelocity(float _xSpeed, float _ySpeed = 0f) 
+    public void SetVelocity(float _xSpeed, float _ySpeed = 0f)
     {
         Rb.velocity = new Vector2(FacingDir * _xSpeed, _ySpeed);
     }
-    
+
     public virtual bool FlipCheck()
     {
         // FlipCheck() == true -> Flip()
@@ -104,7 +100,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void Die() 
+    public virtual void Die()
     {
         ScoreManager.instance.AddEnemyScore();
     }

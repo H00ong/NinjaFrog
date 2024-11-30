@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ChameleonMoveState : EnemyState
 {
     Enemy_Chameleon chameleon;
@@ -29,6 +25,6 @@ public class ChameleonMoveState : EnemyState
             stateMachine.ChangeState(chameleon.AttackState);
             return;
         }
-        chameleon.SetVelocity(chameleon.moveSpeed);       
+        chameleon.SetVelocity(chameleon.moveSpeed);
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScreenWrap : MonoBehaviour
@@ -16,7 +14,7 @@ public class ScreenWrap : MonoBehaviour
 
     private void Update()
     {
-        if (mainCamera == null) 
+        if (mainCamera == null)
             mainCamera = Camera.main;
 
         Vector3 playerPosition = transform.position;

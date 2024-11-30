@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,7 +17,7 @@ public class Ui_EscMenu : MonoBehaviour
         exitButton.interactable = true;
     }
 
-    public void OnResumeButtonPressed() 
+    public void OnResumeButtonPressed()
     {
         Time.timeScale = 1f;
 
@@ -27,7 +25,7 @@ public class Ui_EscMenu : MonoBehaviour
         resumeButton.interactable = false;
     }
 
-    public void OnRestartButtonPressed() 
+    public void OnRestartButtonPressed()
     {
         Time.timeScale = 1f;
 
@@ -37,7 +35,7 @@ public class Ui_EscMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OnExitButtonPressed() 
+    public void OnExitButtonPressed()
     {
         Application.Quit();
     }

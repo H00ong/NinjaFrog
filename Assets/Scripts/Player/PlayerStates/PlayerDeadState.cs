@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDeadState : PlayerState
 {
     public PlayerDeadState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) :
-        base(_player, _stateMachine, _animBoolName) { }
+        base(_player, _stateMachine, _animBoolName)
+    { }
 
     float timer = 0;
 
@@ -17,7 +16,7 @@ public class PlayerDeadState : PlayerState
         rb.gravityScale = 0f;
         timer = player.gameOverAppearTime;
 
-        if (player.gameOverMenu == null) 
+        if (player.gameOverMenu == null)
         {
             player.gameOverMenu = GameObject.Find("Ui_GameOverMenu");
         }
@@ -28,7 +27,7 @@ public class PlayerDeadState : PlayerState
         player.SetVelocity(0, 0);
 
         timer -= Time.deltaTime;
-       
+
         if (timer < 0)
         {
             player.gameOverMenu?.SetActive(true);

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ChameleonDeadState : EnemyState
 {
     Enemy_Chameleon chameleon;
@@ -27,6 +23,6 @@ public class ChameleonDeadState : EnemyState
 
     public override void Update()
     {
-        
+
     }
 }

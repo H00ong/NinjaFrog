@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TreeDeadState : EnemyState
 {
     Enemy_Tree tree;
@@ -14,7 +10,7 @@ public class TreeDeadState : EnemyState
     {
         tree.SetVelocity(0, tree.dieJumpForce);
         tree.Collider.enabled = false;
-        
+
         base.Enter();
 
         tree.DieEffect();

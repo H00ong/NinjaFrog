@@ -5,7 +5,7 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected Player player;
     protected string animBoolName;
-    
+
     protected float xInput;
     protected float yInput = 0f;
 
@@ -28,7 +28,7 @@ public class PlayerState
 
     public virtual void Update()
     {
-        if (player.flashCount > 0 && Input.GetKeyDown(KeyCode.Space) && !player.IsFlying && !player.IsFlashing) 
+        if (player.flashCount > 0 && Input.GetKeyDown(KeyCode.Space) && !player.IsFlying && !player.IsFlashing)
         {
             stateMachine.ChangeState(player.FlashState);
             return;
@@ -41,10 +41,10 @@ public class PlayerState
         }
 
         xInput = Input.GetAxisRaw("Horizontal");
-        
+
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
-        if (rb.velocity.y < 0) 
+        if (rb.velocity.y < 0)
         {
             stateMachine.ChangeState(player.FallState);
             return;

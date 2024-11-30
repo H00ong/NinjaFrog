@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlueBirdIdleState : EnemyState
@@ -15,7 +13,7 @@ public class BlueBirdIdleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        
+
         blueBird.SetVelocity(0);
 
         stateTimer = blueBird.idleTime;
@@ -36,7 +34,7 @@ public class BlueBirdIdleState : EnemyState
 
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             stateMachine.ChangeState(blueBird.PatrolState);
             return;

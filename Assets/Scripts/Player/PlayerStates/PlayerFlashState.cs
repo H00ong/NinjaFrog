@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFlashState : PlayerState
@@ -25,7 +23,7 @@ public class PlayerFlashState : PlayerState
     }
     public override void Update()
     {
-        if (!player.IsFlashing) 
+        if (!player.IsFlashing)
         {
             xInput = Input.GetAxisRaw("Horizontal");
             player.SetVelocity(xInput * player.moveSpeed, 0);
@@ -38,7 +36,7 @@ public class PlayerFlashState : PlayerState
             player.IsFlashing = false;
         }
 
-        if (player.animationFinished) 
+        if (player.animationFinished)
         {
             stateMachine.ChangeState(player.FallState);
         }

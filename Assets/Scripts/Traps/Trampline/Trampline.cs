@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Trampline : MonoBehaviour
@@ -13,7 +11,7 @@ public class Trampline : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,4 +25,3 @@ public class Trampline : MonoBehaviour
         }
     }
 }
-    

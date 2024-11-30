@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
-using UnityEngine;
-
 public class BunnyFallState : EnemyState
 {
     Enemy_Bunny bunny;
@@ -24,7 +19,7 @@ public class BunnyFallState : EnemyState
 
     public override void Update()
     {
-        if(bunny.GroundCheck())
+        if (bunny.GroundCheck())
         {
             bunny.Flip();
             stateMachine.ChangeState(bunny.IdleState);

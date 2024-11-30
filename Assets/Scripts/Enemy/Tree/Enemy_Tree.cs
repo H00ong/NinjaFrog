@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Tree : Enemy
@@ -46,7 +44,7 @@ public class Enemy_Tree : Enemy
         StateMachine.ChangeState(DeadState);
     }
 
-    public void ShootBullet() 
+    public void ShootBullet()
     {
         GameObject newBullet = Instantiate(bullet, shootingPos.position, Quaternion.identity);
         newBullet.transform.localRotation = transform.localRotation;

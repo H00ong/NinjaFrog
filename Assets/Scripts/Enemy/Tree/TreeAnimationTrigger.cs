@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeAnimationTrigger : MonoBehaviour
@@ -11,12 +10,12 @@ public class TreeAnimationTrigger : MonoBehaviour
         tree = GetComponentInParent<Enemy_Tree>();
     }
 
-    void Shoot() 
+    void Shoot()
     {
         StartCoroutine(Bullet());
     }
 
-    IEnumerator Bullet() 
+    IEnumerator Bullet()
     {
         tree.ShootBullet();
         yield return new WaitForSeconds(tree.attackDelay);
@@ -25,7 +24,7 @@ public class TreeAnimationTrigger : MonoBehaviour
         tree.ShootBullet();
     }
 
-    void AnimationTrigger() 
+    void AnimationTrigger()
     {
         tree.animationTrigger = true;
     }

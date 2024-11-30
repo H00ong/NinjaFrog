@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurtleSpikeOutState : EnemyState
 {
     Enemy_Turtle turtle;
-    
+
     float stateTimer = 0f;
 
     public TurtleSpikeOutState(Enemy _Enemy, EnemyStateMachine _stateMachine, string _animBoolName, Enemy_Turtle _turtle) : base(_Enemy, _stateMachine, _animBoolName)
@@ -30,9 +27,9 @@ public class TurtleSpikeOutState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
-            stateMachine.ChangeState(turtle.MoveState);    
+            stateMachine.ChangeState(turtle.MoveState);
         }
     }
 }

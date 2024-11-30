@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyState
@@ -23,19 +20,19 @@ public class EnemyState
     {
         anim = enemy.Anim;
         rb = enemy.Rb;
-        
+
         anim.SetBool(animBoolName, true);
     }
 
     public virtual void Update()
     {
-        if (enemy.FlipCheck()) 
+        if (enemy.FlipCheck())
         {
             enemy.Flip();
         }
     }
 
-    public virtual void Exit() 
+    public virtual void Exit()
     {
         anim.SetBool(animBoolName, false);
     }

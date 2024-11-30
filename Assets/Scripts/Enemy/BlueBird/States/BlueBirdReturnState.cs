@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class BlueBirdReturnState : EnemyState
@@ -27,7 +24,7 @@ public class BlueBirdReturnState : EnemyState
         blueBird.isReturning = false;
         blueBird.playerDetect = false;
 
-        if (lastFlip == true) 
+        if (lastFlip == true)
         {
             blueBird.Flip();
         }

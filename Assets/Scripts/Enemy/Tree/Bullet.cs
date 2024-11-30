@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : Trap
@@ -21,14 +19,14 @@ public class Bullet : Trap
     {
         if (collision.CompareTag("Player"))
         {
-            Player player= collision.GetComponent<Player>();
+            Player player = collision.GetComponent<Player>();
 
             if (player.LayerCheck(LayerMask.GetMask("Bullet")))
             {
                 this.Die();
                 player.Jump();
             }
-            else 
+            else
             {
                 player.Die();
             }

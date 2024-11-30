@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TreeAttackState : EnemyState
 {
     Enemy_Tree tree;
@@ -25,9 +21,9 @@ public class TreeAttackState : EnemyState
 
     public override void Update()
     {
-        if (tree.animationTrigger) 
+        if (tree.animationTrigger)
         {
             stateMachine.ChangeState(tree.IdleState);
-        }    
+        }
     }
 }

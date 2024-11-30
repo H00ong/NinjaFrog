@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -67,17 +64,17 @@ public class Player : MonoBehaviour
         FlyState = new PlayerFlyState(this, StateMachine, "Fly");
         FlashState = new PlayerFlashState(this, StateMachine, "Flash");
 
-        Rb           = GetComponent<Rigidbody2D>();
-        Collider     = GetComponent<CapsuleCollider2D>();
+        Rb = GetComponent<Rigidbody2D>();
+        Collider = GetComponent<CapsuleCollider2D>();
 
-        Anim           = GetComponentInChildren<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         Sr = GetComponentInChildren<SpriteRenderer>();
         Tr = GetComponentInChildren<TrailRenderer>();
     }
 
     void Start()
     {
-        if (Time.timeScale == 0) 
+        if (Time.timeScale == 0)
         {
             Time.timeScale = 1f;
         }
@@ -109,13 +106,13 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-        else if (FacingDir == -1 && (Mathf.Abs(_xInput) > Constants.threshold && _xInput > 0)) 
+        else if (FacingDir == -1 && (Mathf.Abs(_xInput) > Constants.threshold && _xInput > 0))
         {
             Flip();
-        }   
+        }
     }
 
-    
+
 
     public bool LayerCheck(LayerMask _layer)
     {
@@ -157,21 +154,21 @@ public class Player : MonoBehaviour
         helicopterSlider.transform.Rotate(0, 180, 0);
     }
 
-    public void Die() 
+    public void Die()
     {
         StateMachine.ChangeState(DeadState);
     }
 
-    public void DoubleJump() 
+    public void DoubleJump()
     {
         StateMachine.ChangeState(DoubleJumpState);
     }
 
-    public void Fly() 
+    public void Fly()
     {
         StateMachine.ChangeState(FlyState);
     }
-    public void Jump() 
+    public void Jump()
     {
         StateMachine.ChangeState(JumpState);
     }
@@ -185,7 +182,7 @@ public class Player : MonoBehaviour
             .OrderBy(ground => ground.transform.position.y)
             .ToArray();
 
-        switch (higherGrounds.Length) 
+        switch (higherGrounds.Length)
         {
             case 0:
                 return;

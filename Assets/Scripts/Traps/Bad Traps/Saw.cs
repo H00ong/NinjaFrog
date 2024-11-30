@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Saw : Trap
@@ -23,11 +19,11 @@ public class Saw : Trap
 
     void MoveToDestinationPoints()
     {
-        if (Vector2.Distance(movePoints[destinationPointIndex].position, transform.position) < .1f) 
+        if (Vector2.Distance(movePoints[destinationPointIndex].position, transform.position) < .1f)
         {
             destinationPointIndex++;
 
-            if(destinationPointIndex == movePoints.Length)
+            if (destinationPointIndex == movePoints.Length)
                 destinationPointIndex = 0;
         }
 

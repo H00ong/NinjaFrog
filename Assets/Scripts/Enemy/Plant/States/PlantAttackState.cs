@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlantAttackState : EnemyState
@@ -15,12 +12,12 @@ public class PlantAttackState : EnemyState
     {
         base.Enter();
 
-        if (plant.FlipCheck()) 
+        if (plant.FlipCheck())
         {
             plant.Flip();
         }
 
-        if(plant.player != null)
+        if (plant.player != null)
             plant.shootingDir = (plant.player.position - plant.shootingPos.position).normalized;
         else
             plant.shootingDir = Vector2.zero;
@@ -36,7 +33,7 @@ public class PlantAttackState : EnemyState
 
     public override void Update()
     {
-        if (plant.animationTrigger) 
+        if (plant.animationTrigger)
         {
             stateMachine.ChangeState(plant.IdleState);
         }

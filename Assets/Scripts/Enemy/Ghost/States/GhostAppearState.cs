@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class GhostAppearState : EnemyState
@@ -18,7 +15,7 @@ public class GhostAppearState : EnemyState
     {
         ghost.transform.localPosition = new Vector2(Random.Range(-ghost.xPosRange, ghost.xPosRange), ghost.transform.localPosition.y);
 
-        if (Probability.IsEventHappened(.5f)) 
+        if (Probability.IsEventHappened(.5f))
             ghost.Flip();
 
 
@@ -36,7 +33,7 @@ public class GhostAppearState : EnemyState
     {
         stateTimer -= Time.deltaTime;
 
-        if (stateTimer <= 0) 
+        if (stateTimer <= 0)
         {
             stateMachine.ChangeState(ghost.IdleState);
         }

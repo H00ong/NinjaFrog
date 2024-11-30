@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,7 +24,7 @@ public class Ui_GameOverMenu : MonoBehaviour
             newRecordImage.gameObject.SetActive(true);
             newRecordText.text = $"Congratulations\nNew Record : {score}";
         }
-        else 
+        else
         {
             newRecordImage.gameObject.SetActive(false);
             newRecordText.text = $"Your Record : {score}";

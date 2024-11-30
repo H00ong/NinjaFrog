@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Ghost : Enemy 
+public class Enemy_Ghost : Enemy
 {
     [Header("Move details")]
     public float idleTime = 2f;
@@ -36,4 +34,4 @@ public class Enemy_Ghost : Enemy
         StateMachine.ChangeState(DeadState);
     }
 }
-    
+

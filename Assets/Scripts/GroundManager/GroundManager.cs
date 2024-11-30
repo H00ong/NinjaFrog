@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ public class GroundManager : MonoBehaviour
     [SerializeField] float minXOffset = .25f;
     [SerializeField] float minYOffset = 1.3f;
     [SerializeField] int groundCount = 15;
-    
+
     [SerializeField] GameObject[] groundPrefab;
     [SerializeField] DeathPlane deathPlane;
     [SerializeField] Sprite[] groundSprites;
@@ -25,8 +24,8 @@ public class GroundManager : MonoBehaviour
         player = PlayerManager.instance.player.transform;
 
         GameObject ground = Instantiate(groundPrefab[0], new Vector3(-0.3f, -1), Quaternion.identity, gameObject.transform);
-        
-        if(ground.GetComponent<SpriteRenderer>() != null)
+
+        if (ground.GetComponent<SpriteRenderer>() != null)
             ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
 
         groundList.Add(ground);
@@ -45,7 +44,7 @@ public class GroundManager : MonoBehaviour
             float yPos = groundList[groundList.Count - 1].transform.position.y + Random.Range(minYOffset, maxYOffset);
 
             ground = Instantiate(groundPrefab[Random.Range(0, groundPrefab.Length)], new Vector3(xPos, yPos), Quaternion.identity, gameObject.transform);
-            
+
             if (ground.GetComponent<SpriteRenderer>() != null)
                 ground.GetComponent<SpriteRenderer>().sprite = groundSprites[Random.Range(0, groundSprites.Length)];
 

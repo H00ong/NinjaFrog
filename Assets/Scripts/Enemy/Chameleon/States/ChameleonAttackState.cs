@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ChameleonAttackState : EnemyState
 {
     Enemy_Chameleon chameleon;
@@ -25,7 +21,7 @@ public class ChameleonAttackState : EnemyState
 
     public override void Update()
     {
-        if (chameleon.animationTrigger) 
+        if (chameleon.animationTrigger)
         {
             stateMachine.ChangeState(chameleon.IdleState);
         }

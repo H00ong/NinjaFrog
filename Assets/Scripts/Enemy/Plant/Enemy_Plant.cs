@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Plant : Enemy
@@ -53,20 +51,20 @@ public class Enemy_Plant : Enemy
 
     public override bool FlipCheck()
     {
-        if (playerDetect) 
+        if (playerDetect)
         {
-            if (player != null) 
+            if (player != null)
             {
-                if (transform.position.x < player.position.x) 
+                if (transform.position.x < player.position.x)
                 {
                     if (FacingDir == -1)
                     {
                         return true;
                     }
                 }
-                else 
+                else
                 {
-                    if (FacingDir == 1) 
+                    if (FacingDir == 1)
                     {
                         return true;
                     }
@@ -79,13 +77,13 @@ public class Enemy_Plant : Enemy
     public void ShootBullet()
     {
         GameObject newBullet = Instantiate(bullet, shootingPos.position, Quaternion.identity);
-        
+
         if (shootingDir != Vector2.zero)
         {
             newBullet.GetComponent<Rigidbody2D>().velocity = shootingDir * bulletSpeed;
             newBullet.transform.right = shootingDir;
         }
-        else 
+        else
         {
             newBullet.transform.localRotation = transform.localRotation;
             newBullet.GetComponent<Rigidbody2D>().velocity = -transform.right * bulletSpeed;

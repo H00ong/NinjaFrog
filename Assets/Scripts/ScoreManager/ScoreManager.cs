@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -22,7 +19,7 @@ public class ScoreManager : MonoBehaviour
         {
             instance = this;
         }
-        else 
+        else
         {
             Destroy(gameObject);
         }
@@ -57,9 +54,9 @@ public class ScoreManager : MonoBehaviour
         Score += enemyScoreModifier;
     }
 
-    public bool UpdateHighestScore() 
+    public bool UpdateHighestScore()
     {
-        if (Score > HighestScore) 
+        if (Score > HighestScore)
         {
             PlayerPrefs.SetInt("highScore", Score);
             return true;

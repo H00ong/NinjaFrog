@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy_BlueBird : Enemy
@@ -33,7 +30,7 @@ public class Enemy_BlueBird : Enemy
     protected override void Start()
     {
         base.Start();
-        
+
         Rb.gravityScale = 0;
         enemyLayer = LayerMask.GetMask("FlyingEnemy");
 

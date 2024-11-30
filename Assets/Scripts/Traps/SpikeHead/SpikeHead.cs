@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikeHead : Trap
@@ -8,11 +7,11 @@ public class SpikeHead : Trap
     [SerializeField] Transform targetGround;
     [SerializeField] float upSpeed = 1f;
     [SerializeField] float upTimeDelay = 1.5f;
-    
+
     Rigidbody2D rb;
     bool isUp = false;
     float defaultGravityScale;
-    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,7 +49,7 @@ public class SpikeHead : Trap
         }
     }
 
-    IEnumerator Up() 
+    IEnumerator Up()
     {
         yield return new WaitForSeconds(upTimeDelay);
         isUp = true;
