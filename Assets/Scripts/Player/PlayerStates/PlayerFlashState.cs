@@ -12,6 +12,7 @@ public class PlayerFlashState : PlayerState
     {
         player.SetVelocity(0, 0);
 
+        player.flashCount--;
         player.IsFlashing = true;
         player.Collider.enabled = false;
         player.Rb.gravityScale = 0f;
@@ -24,12 +25,17 @@ public class PlayerFlashState : PlayerState
     }
     public override void Update()
     {
-        // base.Update();
+        if (!player.IsFlashing) 
+        {
+            xInput = Input.GetAxisRaw("Horizontal");
+            player.SetVelocity(xInput * player.moveSpeed, 0);
+        }
 
         if (player.flashTrigger)
         {
             player.Flash();
             player.flashTrigger = false;
+            player.IsFlashing = false;
         }
 
         if (player.animationFinished) 
@@ -40,7 +46,6 @@ public class PlayerFlashState : PlayerState
 
     public override void Exit()
     {
-        player.IsFlashing = false;
         player.Collider.enabled = true;
         player.Rb.gravityScale = 1f;
         player.Tr.emitting = false;

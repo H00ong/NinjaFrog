@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 6633279787124619794}
   - component: {fileID: 4354884150576732877}
   - component: {fileID: 8979997923752034019}
+  - component: {fileID: 2099879670998873650}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -212,6 +213,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2099879670998873650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452256680217804194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562a211e825fe10449243603d72c0190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3134022688089874017
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7051184817621462608
 Transform:
   m_ObjectHideFlags: 0
@@ -355,7 +368,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!1 &6454452267471452014
 GameObject:
@@ -506,14 +519,19 @@ MonoBehaviour:
   groundedCheck: {fileID: 6454452267471452014}
   helicopter: {fileID: 1205477189821476216}
   groundedRadius: 0.25
+  flashGroundYOffset: 2
+  gameOverMenu: {fileID: 3333456064970049144}
   moveSpeed: 5
   jumpForce: 6.5
   doubleJumpForce: 15
   flySpeed: 12
   flyTime: 5
   xBoundary: 3.1
+  maxFlashCount: 3
+  flashCount: 3
   gameOverAppearTime: 2
-  gameOverMenu: {fileID: 3333456064970049144}
+  flashTrigger: 0
+  animationFinished: 0
 --- !u!114 &130744852214124120
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public int maxFlashCount = 3;
     public int flashCount = 3;
 
+    public float flashChargingTime = 5f;
+
     public float gameOverAppearTime = 2f;
 
     LayerMask groundLayer;
@@ -180,7 +182,17 @@ public class Player : MonoBehaviour
             .OrderBy(ground => ground.transform.position.y)
             .ToArray();
 
-        transform.position = higherGrounds[1].transform.position + new Vector3(0, flashGroundYOffset, 0);
+        switch (higherGrounds.Length) 
+        {
+            case 0:
+                return;
+            case 1:
+                transform.position = higherGrounds[0].transform.position + new Vector3(0, flashGroundYOffset, 0);
+                return;
+            default:
+                transform.position = higherGrounds[1].transform.position + new Vector3(0, flashGroundYOffset, 0);
+                return;
+        }
     }
     #endregion
 
