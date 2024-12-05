@@ -30,7 +30,7 @@
 1. **GitHub에서 다운로드**
    - GitHub 페이지로 이동한 후, `Code` 버튼을 클릭하고 **Download ZIP**을 선택하거나 아래 명령어로 레포지토리를 클론합니다:
      ```bash
-     git clone <https://github.com/H00ong/NinjaFrog.git>
+     git clone https://github.com/H00ong/NinjaFrog.git
      ```
 
 2. **Unity Hub에서 프로젝트 열기**
