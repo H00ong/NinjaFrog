@@ -46,7 +46,8 @@
 - 복원이 완료된 뒤 프로젝트가 정상적으로 열리는지 확인하세요.
 
 7. **게임 실행 파일**
-- ```bash
+- 아래의 링크(Google Drive)에서 Zip폴더를 다운받아 압축을 해제한 뒤 NinjaFrog.exe파일 실행
+   ```bash
      https://drive.google.com/file/d/1puX3xDy2b4O5iZzI6ktU49hRKNg_r2zP/view?usp=drive_link
      ```
 
