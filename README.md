@@ -77,7 +77,7 @@
 
 ![GameOver](./Image/GameOver.png)
 
-- Game Over 화면입니다. 최고 기록을 세웠을 때의 화면이고, 최고 기록을 세우지 못한 경우 위의 Icon
+- Game Over 화면입니다. 최고 기록을 세웠을 때의 화면이고, 최고 기록을 세우지 못한 경우 위의 Icon은 나오지 않고 점수만 나옵니다.
 
 ## 아이템 및 기능
 ### Trampline
@@ -193,7 +193,7 @@ public bool LayerCheck(LayerMask _layer)
   - 이를 통해 자식 객체의 길이가 설정하여 공격 길이를 조절하였습니다.
 
 ## 기술 스택
-1. ![UnityImage](./Image/Unity.png) 2. ![C#Image]((./Image/c#.jpeg))
+1. ![UnityImage](./Image/Unity.png) 2. ![C#Image](./Image/c#.jpeg)
 - **C#**, **Unity**
 
 
