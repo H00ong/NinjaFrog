@@ -3,7 +3,7 @@
 **Ninja Frog**는 **Doodle Jump**를 모티브로 만든 게임입니다.
 
 # Contributor
--H00ong(박재홍)
+- H00ong(박재홍)
 
 # Asset Attribution
 **Assets/Free** 폴더와 **Assets/Enemies** 폴더에 있는 에셋은 아래 사이트에서 제공하는 무료 리소스를 사용한 것입니다.  
