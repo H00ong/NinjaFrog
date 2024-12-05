@@ -22,9 +22,12 @@
    - [Helicopter](#Helicopter)
    - [Flash](#Flash)
 3. [코드 설명](#코드-설명)
-   - [StateMachine](#StateMahcine)
-   - [플레이어 로직](#자동-점프-구현)
-   - [적 캐릭터 로직](#적-캐릭터-로직)
+   - [StateMachine](#StateMachine)
+   - [Player](#Player)
+   - [Enemy](#Enemy)
+    - BlueBird, Bat, Plant
+    - Slime, Turtle, Tree, Bunny, Chameleon
+   - [GroundManager](#Ground-Manager)
 
 ## 시작하기
 1. **GitHub에서 다운로드**
@@ -115,13 +118,13 @@ public void Exit();
 - 새로운 상태의 Enter()가 호출됩니다.
 - Update는 Unity안에서 따로 정의되어 있는 함수인 **Update()** 메서드 안에서 CurrentState.Update()에 의해 호출되어 동작을 수행합니다.
 
-### 플레이어 로직
-- **Ground 레이어**에 닿으면 자동으로 점프하도록 설정했습니다.
+### Player
+- **Ground Layer**에 닿으면 자동으로 점프하도록 설정했습니다.
 - `CheckLayer()` 함수를 통해 현재 접촉한 레이어가 `ground`, `enemyLayer`, `flyEnemyLayer`인지 판별합니다.
 - 만약 `ground` 레이어라면 자동 점프를 실행합니다.
 
-### 적 캐릭터 로직
-#### 적 캐릭터 종류
+### Enemy
+#### Enemy Types
 - **BlueBirdEnemy**, **Bat**, **Plants**
   - 이들은 플레이어를 인지해야 합니다.
   - `PlayerDetector` 객체를 통해 일정 범위 내에 플레이어가 있는지 감지합니다.
@@ -135,6 +138,8 @@ public void Exit();
 - 애니메이션 이벤트에서 `float` 타입의 길이 값을 전달받습니다.
 - 카멜레온의 자식 객체에 `trigger`를 설정하여, 애니메이션 이벤트에서 받은 `float` 값에 따라 **x 스케일**을 조정합니다.
 - 이를 통해 공격 길이를 조절하였습니다.
+
+### Ground Manager
 
 
 
