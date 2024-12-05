@@ -63,12 +63,13 @@
 
 ![TramplineImage](./Image/Trampline.gif)
 
-### 헬리콥터 아이템
--이미지-
+### 헬리콥터
+![TramplineImage](./Image/Helicopter.png)
 - 헬리콥터 아이템에 닿으면 **비행**이 가능합니다.
 - 캐릭터 아래의 **파란색 게이지**는 아이템의 유지 시간을 표시합니다.
 - 비행 중에는 적에게서 피해를 받지 않습니다.
-- _(비디오 클립 삽입 예정)_
+
+![TramplineImage](./Image/Helicopter.gif)
 
 ### 플래시 (Flash)
 - `Space` 키를 누르면 **플래시**를 사용할 수 있습니다.
