@@ -21,8 +21,7 @@
 - **왼쪽 이동**: `A` 키 또는 `←` 키
 - **오른쪽 이동**: `D` 키 또는 `→` 키
 - **미러링 기능**: 화면의 왼쪽 끝으로 이동하면 오른쪽 끝으로 이동하며, 그 반대도 가능합니다.
-- **순간 이동**: `Space`키를 누르면 Player위의 2번째 Ground로 순간 이동합니다.
-- - 영상-
+- **순간 이동**: `Space`키를 누르면 Player위의 2번째 Ground위로 순간 이동합니다.
 
 ## 아이템 및 기능
 ### 트램펄린
@@ -40,8 +39,9 @@
 
 ### 플래시 (Flash)
 - `Space` 키를 누르면 **플래시**를 사용할 수 있습니다.
-- 플레이어보다 높은 위치에 있는 **두 개의 그라운드**로 순간이동합니다.
+- 플레이어보다 높은 위치에 있는 **두 개의 위에 있는 그라운드**로 순간이동합니다.
 - 플래시는 **충전 방식**이며, 아래 게이지를 통해 충전 시간을 확인할 수 있습니다.
+- 영상
 
 ## 코드 설명
 이 게임은 **상태 머신(State Machine)** 기반으로 설계되었습니다.
@@ -71,15 +71,13 @@ _(상태 머신에 대한 그림 삽입 예정)_
 - 이를 통해 공격 길이를 조절하였습니다.
 
 ## Contributor
-_(내용은 추후에 채워질 예정입니다.)_
-
+-H00ong(박재홍)
 
 ## Asset Attribution
+**Assets/Free** 폴더와 **Assets/Enemies** 폴더에 있는 에셋은 아래 사이트에서 제공하는 무료 리소스를 사용한 것입니다.  
+이 에셋은 Pixel Frog 페이지에 명시된 조건에 따라 무료로 사용 가능합니다.
 
-The assets in the 'Assets/Free' folder and 'Assets/Enemies' folder are sourced from the free resources provided by below sites. 
-These assets are made available for free use under the terms specified on the Pixel Frog page.
-
-- Source: [Pixel Adventure 1 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)
-- Folder: `Assets/Free`
-- Source: [Pixel Adventure 2 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-2)
-- Folder: 'Assets/Enemies'
+- 출처: [Pixel Adventure 1 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)  
+  - 폴더: `Assets/Free`
+- 출처: [Pixel Adventure 2 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-2)  
+  - 폴더: `Assets/Enemies`
