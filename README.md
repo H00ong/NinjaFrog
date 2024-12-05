@@ -193,7 +193,8 @@ public bool LayerCheck(LayerMask _layer)
   - 이를 통해 자식 객체의 길이가 설정하여 공격 길이를 조절하였습니다.
 
 ## 기술 스택
-1. ![UnityImage](./Image/Unity.png) 2. ![C#Image](./Image/c#.jpeg)
+1. ![UnityImage](./Image/Unity.png)
+2. 2. ![c#Image](./Image/c#.jpeg)
 - **C#**, **Unity**
 
 
