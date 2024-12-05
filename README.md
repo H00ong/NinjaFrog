@@ -162,11 +162,11 @@ public bool LayerCheck(LayerMask _layer)
     - Collider.enabled가 false일 경우 바로 false를 반환합니다.
 
   2. Ground 레이어 확인 (groundLayer)
-  - CircleCast를 통해 충돌 여부를 확인합니다.
-  충돌한 오브젝트에 FallingGround 컴포넌트가 있다면 Fall() 메서드를 호출합니다.
-  충돌이 있다면 true, 없다면 false를 반환합니다.
-  기타 레이어인 경우 단순히 CircleCast를 통해 충돌 여부를 확인하고 결과를 반환합니다.
-  Enemy의 경우 Trigger 영역 안에 Player가 닿고 LayerCheck가 True가 반환되면 Enemy는 DeadState로 전환됩니다.
+    - CircleCast를 통해 충돌 여부를 확인합니다.
+    충돌한 오브젝트에 FallingGround 컴포넌트가 있다면 Fall() 메서드를 호출합니다.
+    충돌이 있다면 true, 없다면 false를 반환합니다.
+    기타 레이어인 경우 단순히 CircleCast를 통해 충돌 여부를 확인하고 결과를 반환합니다.
+    Enemy의 경우 Trigger 영역 안에 Player가 닿고 LayerCheck가 True가 반환되면 Enemy는 DeadState로 전환됩니다.
 
 ### Enemy
 #### Enemy Types
