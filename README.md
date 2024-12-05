@@ -79,10 +79,42 @@
 ![TramplineImage](./Image/Flash.gif)
 
 ## 코드 설명
-이 게임은 **상태 머신(State Machine)** 기반으로 설계되었습니다.
 
-### 상태 머신 구조
-_(상태 머신에 대한 그림 삽입 예정)_
+![StateMachineImage](./Image/StateMachine.png)
+
+  - 이 게임은 위의 그림과 같은 **상태 머신(State Machine)** 기반으로 설계되었습니다.
+  - State Machine은 Object의 상태를 저장하고 변이하도록 하는 객체입니다.
+  - State Machine을 이용하면 State 간의 Transition을 안정적으로 수행할 수 있는 장점이 있습니다.
+  - 특히 Unity안에서 animation을 transition 하는데 장점이 있습니다.
+  - 해당 프로젝트에서는 **Player** 와 **Enemy**에 StateMachine을 사용하였습니다.
+
+- StateMachine에는 아래와 같은 함수가 있습니다.
+```csharp
+public void InitializeState(PlayerState _startState)
+{
+    CurrentState = _startState;
+    CurrentState.Enter();
+}
+
+public void ChangeState(PlayerState _newState)
+{
+    CurrentState.Exit();
+    CurrentState = _newState;
+    CurrentState.Enter();
+}
+```
+StateMachine은 상태를 초기화하거나 현재의 상태에서 다른 상태로 전이를 담당합니다.
+
+State에는
+```csharp
+public void Enter()
+public void Update()
+public void Exit()
+```
+위의 3가지 함수가 디폴트로 정의되어 있습니다. 상태가 전이되면서 이전의 State의 Exit()가 호출되고
+새로운 상태의 Enter()가 호출됩니다.
+Update는 Unity안에서 따로 정의되어 있는 함수인 **Update()** 메서드 안에서 CurrentState.Update()로 호출되어 동작을 수행합니다.
+
 
 ### 플레이어 로직
 - **Ground 레이어**에 닿으면 자동으로 점프하도록 설정했습니다.
