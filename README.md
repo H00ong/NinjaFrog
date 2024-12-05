@@ -15,6 +15,7 @@
      - [적 캐릭터 종류](#적-캐릭터-종류)
      - [카멜레온의 혀 공격](#카멜레온의-혀-공격)
 5. [Contributor](#contributor)
+6. [Asset Attribution](#asset attribution)
 - 
 ## 게임 조작 방법
 - **왼쪽 이동**: `A` 키 또는 `←` 키
