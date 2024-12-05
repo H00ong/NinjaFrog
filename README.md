@@ -2,6 +2,10 @@
 
 **Ninja Frog**는 **Doodle Jump**를 모티브로 만든 게임입니다.
 
+- 게임 플레이 영상 링크입니다.
+[GamePlay](https://www.youtube.com/watch?v=o5BaEgDQWqU)
+
+
 # Contributor
 - H00ong(박재홍)
 
