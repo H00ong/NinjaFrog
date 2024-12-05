@@ -170,7 +170,7 @@ public bool LayerCheck(LayerMask _layer)
 
 ### Enemy
 #### Enemy Types
-- **BlueBirdEnemy**, **Bat**, **Plants**
+- **Blue Bird**, **Bat**, **Plants**
   - !사진
   - 이들은 플레이어를 인지해야 합니다.
   - `PlayerDetector` 객체를 통해 일정 범위 내에 플레이어가 있는지 감지합니다.
