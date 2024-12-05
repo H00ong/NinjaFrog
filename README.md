@@ -107,14 +107,14 @@ StateMachine은 상태를 초기화하거나 현재의 상태에서 다른 상�
 
 State에는
 ```csharp
-public void Enter()
-public void Update()
-public void Exit()
+public void Enter();
+public void Update();
+public void Exit();
 ```
-위의 3가지 함수가 디폴트로 정의되어 있습니다. 상태가 전이되면서 이전의 State의 Exit()가 호출되고
-새로운 상태의 Enter()가 호출됩니다.
-Update는 Unity안에서 따로 정의되어 있는 함수인 **Update()** 메서드 안에서 CurrentState.Update()로 호출되어 동작을 수행합니다.
-
+- 위의 3가지 함수가 기본적으로 정의되어 있습니다.
+- 상태가 전이되면서 이전의 State의 Exit()가 호출됩니다.
+- 새로운 상태의 Enter()가 호출됩니다.
+- Update는 Unity안에서 따로 정의되어 있는 함수인 **Update()** 메서드 안에서 CurrentState.Update()에 의해 호출되어 동작을 수행합니다.
 
 ### 플레이어 로직
 - **Ground 레이어**에 닿으면 자동으로 점프하도록 설정했습니다.
