@@ -61,14 +61,23 @@
 - **ESC**: 'Escape'키를 누르면 Play를 중단할 수 있습니다. 
 
 ## 게임 구성
-- 사진
+
+
+![GameStartImage]()(./Image/GameStart.png)
 - 처음 시작 화면입니다. 최고 점수를 보여주고 플레이 버튼과 Quit 버튼이 주어집니다.
-- 사진
+
+![IngameImage](./Image/Ingame.png)
+
 - In game 화면입니다. 우측 상단에 최고 점수를 보여주고 좌측 하단에는 Flash 남은 횟수와 gauge를 보여줍니다.
+
+![ESCMenuImage](./Image/ESCMenu.png)
+
 - ESC 화면. Escape를 누른 경우에 나오는 화면입니다. 게임이 일시 중단됩니다. Escape 버튼을 다시 누르거나 play버튼을 누르면 재개합니다.
-- Restart 버튼을 누르면 해당 플레이가 초기화되고 0점이 됩니다.
-- 사진
-- Game Over 화면입니다.
+- Restart 버튼을 누르면 게임을 restart할 수 있습니다.
+
+![GameOver](./Image/GameOver.png)
+
+- Game Over 화면입니다. 최고 기록을 세웠을 때의 화면이고, 최고 기록을 세우지 못한 경우 위의 Icon
 
 ## 아이템 및 기능
 ### Trampline
@@ -79,19 +88,19 @@
 ![TramplineImage](./Image/Trampline.gif)
 
 ### Helicopter
-![TramplineImage](./Image/Helicopter.png)
+![Helicopter](./Image/Helicopter.png)
 - 헬리콥터 아이템에 닿으면 **비행**이 가능합니다.
 - 플레이어 아래의 **파란색 게이지**는 아이템의 유지 시간을 표시합니다.
 - 비행 중에는 적에게서 피해를 받지 않습니다.
 
-![TramplineImage](./Image/Helicopter.gif)
+![HelicopterGif](./Image/Helicopter.gif)
 
 ### Flash
 - `Space` 키를 누르면 **플래시**를 사용할 수 있습니다.
 - 플레이어보다 높은 위치에 있는 **두 개의 위에 있는 그라운드**로 순간이동합니다.
 - 플래시는 **충전 방식**이며, 아래 게이지를 통해 충전 시간을 확인할 수 있습니다.
 
-![TramplineImage](./Image/Flash.gif)
+![FlashGif](./Image/Flash.gif)
 
 ## 코드 설명
 ### StateMachine
@@ -184,7 +193,7 @@ public bool LayerCheck(LayerMask _layer)
   - 이를 통해 자식 객체의 길이가 설정하여 공격 길이를 조절하였습니다.
 
 ## 기술 스택
-1. 유니티 사진 2. C# 사진
+1. ![UnityImage](./Image/Unity.png) 2. ![C#Image]((./Image/c#.jpeg))
 - **C#**, **Unity**
 
 
