@@ -63,7 +63,7 @@
 ## 게임 구성
 
 
-![GameStartImage]()(./Image/GameStart.png)
+![GameStartImage](./Image/GameStart.png)
 - 처음 시작 화면입니다. 최고 점수를 보여주고 플레이 버튼과 Quit 버튼이 주어집니다.
 
 ![IngameImage](./Image/Ingame.png)
