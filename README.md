@@ -17,11 +17,12 @@
 # 목차
 0. [시작하기](#게임-시작하기)
 1. [게임 조작 방법](#게임-조작-방법)
-2. [아이템 및 기능](#아이템-및-기능)
+2. [게임 구성](#게임-구성)
+3. [아이템 및 기능](#아이템-및-기능)
    - [Trampline](#Trampline)
    - [Helicopter](#Helicopter)
    - [Flash](#Flash)
-3. [코드 설명](#코드-설명)
+4. [코드 설명](#코드-설명)
    - [StateMachine](#StateMachine)
    - [Player](#Player)
    - [Enemy](#Enemy)
@@ -57,6 +58,7 @@
 - **오른쪽 이동**: `D` 키 또는 `→` 키
 - **미러링 기능**: 화면의 왼쪽 끝으로 이동하면 오른쪽 끝으로 이동하며, 그 반대도 가능합니다.
 - **순간 이동**: `Space`키를 누르면 Player위의 2번째 Ground위로 순간 이동합니다.
+- **ESC**: 'Escape'키를 누르면 Play를 중단할 수 있습니다. 
 
 ## 아이템 및 기능
 ### Trampline
@@ -154,25 +156,23 @@ public bool LayerCheck(LayerMask _layer)
   충돌한 오브젝트에 FallingGround 컴포넌트가 있다면 Fall() 메서드를 호출합니다.
   충돌이 있다면 true, 없다면 false를 반환합니다.
   기타 레이어인 경우 단순히 CircleCast를 통해 충돌 여부를 확인하고 결과를 반환합니다.
-  Enemy의 경우 Trigger 영역 안에 Player가 닿고 LayerCheck가 True가 반환되면 DeadState로 전환된다.
+  Enemy의 경우 Trigger 영역 안에 Player가 닿고 LayerCheck가 True가 반환되면 Enemy는 DeadState로 전환됩니다.
 
 ### Enemy
 #### Enemy Types
 - **BlueBirdEnemy**, **Bat**, **Plants**
+  !사진
   - 이들은 플레이어를 인지해야 합니다.
   - `PlayerDetector` 객체를 통해 일정 범위 내에 플레이어가 있는지 감지합니다.
+  - 감지하는 로직은 Collider2D를 두고 Trigger로 설정하여, Trigger 영역 안에 들어오면 Player를 인식하게 됩니다.
+  - 위의 사진에서 초록색 영역이 Trigger 영역입니다.
   - 플레이어를 인식하면 공격하거나 공격 방향을 결정합니다.
-- **Chameleon**, **Bunny**, **Slime**, **Turtle**
-  - 그라운드의 끝 지점을 검사해야 합니다.
-  - `LineCast` 함수를 사용하여 그라운드의 끝 지점에 도달하면 상태를 변경하도록 설정했습니다.
+- **Chameleon**
+  - 카멜레온은 혀로 공격하며, 애니메이션 프레임에 따라 혀의 길이가 달라집니다. 그에 따라 공격 범위 역시 달라집니다.
+  - 유니티에서는 애니메이션 특정 프레임에 이벤트를 발생시킬 수 있습니다.
+  - 이벤트로 함수를 설정하였고, Parameter로 혀의 길이 x scale값을 전달합니다.
+  - 이를 통해 자식 객체의 길이가 설정하여 공격 길이를 조절하였습니다.
 
-#### 카멜레온 Enemy의 공격 로직
-- 카멜레온은 혀로 공격하며, 혀의 길이에 따라 공격 범위가 달라집니다.
-- 애니메이션 이벤트에서 `float` 타입의 길이 값을 전달받습니다.
-- 카멜레온의 자식 객체에 `trigger`를 설정하여, 애니메이션 이벤트에서 받은 `float` 값에 따라 **x 스케일**을 조정합니다.
-- 이를 통해 공격 길이를 조절하였습니다.
-
-### Ground Manager
 
 
 
