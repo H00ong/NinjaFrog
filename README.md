@@ -180,11 +180,9 @@ public bool LayerCheck(LayerMask _layer)
 ### Enemy
 #### Enemy Types
 - **Blue Bird**, **Bat**, **Plants**
-  - !사진
   - 이들은 플레이어를 인지해야 합니다.
   - `PlayerDetector` 객체를 통해 일정 범위 내에 플레이어가 있는지 감지합니다.
   - 감지하는 로직은 Collider2D를 두고 Trigger로 설정하여, Trigger 영역 안에 들어오면 Player를 인식하게 됩니다.
-  - 위의 사진에서 초록색 영역이 Trigger 영역입니다.
   - 플레이어를 인식하면 공격하거나 공격 방향을 결정합니다.
 - **Chameleon**
   - 카멜레온은 혀로 공격하며, 애니메이션 프레임에 따라 혀의 길이가 달라집니다. 그에 따라 공격 범위 역시 달라집니다.
@@ -193,10 +191,5 @@ public bool LayerCheck(LayerMask _layer)
   - 이를 통해 자식 객체의 길이가 설정하여 공격 길이를 조절하였습니다.
 
 ## 기술 스택
-1. ![UnityImage](./Image/Unity.png) 2. ![c#Image](./Image/c#.jpg)
+1. ![UnityImage](./Image/Unity.png) 2. ![c#Image](./Image/c#.jpeg)
 -  **Unity**, **C#**
-
-
-
-
-
