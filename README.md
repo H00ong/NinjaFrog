@@ -2,6 +2,18 @@
 
 **Ninja Frog**는 **Doodle Jump**를 모티브로 만든 게임입니다.
 
+# Contributor
+-H00ong(박재홍)
+
+# Asset Attribution
+**Assets/Free** 폴더와 **Assets/Enemies** 폴더에 있는 에셋은 아래 사이트에서 제공하는 무료 리소스를 사용한 것입니다.  
+이 에셋은 Pixel Frog 페이지에 명시된 조건에 따라 무료로 사용 가능합니다.
+
+- 출처: [Pixel Adventure 1 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)  
+  - 폴더: `Assets/Free`
+- 출처: [Pixel Adventure 2 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-2)  
+  - 폴더: `Assets/Enemies`
+
 # 목차
 0. [시작하기](#게임-시작하기)
 1. [게임 조작 방법](#게임-조작-방법)
@@ -11,12 +23,8 @@
    - [플래시-flash](#플래시-flash)
 3. [코드 설명](#코드-설명)
    - [상태 머신 구조](#상태-머신-구조)
-   - [자동 점프 구현](#자동-점프-구현)
+   - [플레이어 로직직](#자동-점프-구현)
    - [적 캐릭터 로직](#적-캐릭터-로직)
-     - [적 캐릭터 종류](#적-캐릭터-종류)
-     - [카멜레온의 혀 공격](#카멜레온의-혀-공격)
-5. [Contributor](#contributor)
-6. [Asset Attribution](#asset-attribution)
 
 ## 시작하기
 1. **GitHub에서 다운로드**
@@ -71,7 +79,7 @@
 ### 상태 머신 구조
 _(상태 머신에 대한 그림 삽입 예정)_
 
-### 자동 점프 구현
+### 플레이어 로직직
 - **Ground 레이어**에 닿으면 자동으로 점프하도록 설정했습니다.
 - `CheckLayer()` 함수를 통해 현재 접촉한 레이어가 `ground`, `enemyLayer`, `flyEnemyLayer`인지 판별합니다.
 - 만약 `ground` 레이어라면 자동 점프를 실행합니다.
@@ -86,20 +94,12 @@ _(상태 머신에 대한 그림 삽입 예정)_
   - 그라운드의 끝 지점을 검사해야 합니다.
   - `LineCast` 함수를 사용하여 그라운드의 끝 지점에 도달하면 상태를 변경하도록 설정했습니다.
 
-#### 카멜레온의 혀 공격
+#### 카멜레온 Enemy의 공격 로직
 - 카멜레온은 혀로 공격하며, 혀의 길이에 따라 공격 범위가 달라집니다.
 - 애니메이션 이벤트에서 `float` 타입의 길이 값을 전달받습니다.
 - 카멜레온의 자식 객체에 `trigger`를 설정하여, 애니메이션 이벤트에서 받은 `float` 값에 따라 **x 스케일**을 조정합니다.
 - 이를 통해 공격 길이를 조절하였습니다.
 
-## Contributor
--H00ong(박재홍)
 
-## Asset Attribution
-**Assets/Free** 폴더와 **Assets/Enemies** 폴더에 있는 에셋은 아래 사이트에서 제공하는 무료 리소스를 사용한 것입니다.  
-이 에셋은 Pixel Frog 페이지에 명시된 조건에 따라 무료로 사용 가능합니다.
 
-- 출처: [Pixel Adventure 1 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)  
-  - 폴더: `Assets/Free`
-- 출처: [Pixel Adventure 2 by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-2)  
-  - 폴더: `Assets/Enemies`
+
