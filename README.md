@@ -45,11 +45,9 @@
 - Unity가 프로젝트를 열 때 자동으로 필요한 패키지를 복원합니다.
 - 복원이 완료된 뒤 프로젝트가 정상적으로 열리는지 확인하세요.
 
-7. **게임 실행 파일**
-- 아래의 링크(Google Drive)에서 Zip폴더를 다운받아 압축을 해제한 뒤 NinjaFrog.exe파일 실행
-   ```bash
-     https://drive.google.com/file/d/1puX3xDy2b4O5iZzI6ktU49hRKNg_r2zP/view?usp=drive_link
-     ```
+7. **게임 플레이하기**
+   1. 업로드 된 Build_Part1과 Build_Part2 Zip파일을 하나의 폴더 아래에 압축 해제한다.
+   2. NinjaFrog.exe 파일을 실행한다.
 
 ## 게임 조작 방법
 - **왼쪽 이동**: `A` 키 또는 `←` 키
