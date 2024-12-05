@@ -66,7 +66,7 @@
 ![GameStartImage](./Image/GameStart.png)
 - 처음 시작 화면입니다. 최고 점수를 보여주고 플레이 버튼과 Quit 버튼이 주어집니다.
 
-![IngameImage](./Image/Ingame.png)
+![InGameImage](./Image/InGame.png)
 
 - In game 화면입니다. 우측 상단에 최고 점수를 보여주고 좌측 하단에는 Flash 남은 횟수와 gauge를 보여줍니다.
 
