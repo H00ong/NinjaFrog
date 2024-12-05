@@ -103,9 +103,8 @@ public void ChangeState(PlayerState _newState)
     CurrentState.Enter();
 }
 ```
-StateMachine은 상태를 초기화하거나 현재의 상태에서 다른 상태로 전이를 담당합니다.
-
-State에는
+- StateMachine은 상태를 초기화하거나 현재의 상태에서 다른 상태로의 전이를 담당합니다.
+- State에는
 ```csharp
 public void Enter();
 public void Update();
