@@ -25,8 +25,8 @@
    - [StateMachine](#StateMachine)
    - [Player](#Player)
    - [Enemy](#Enemy)
-    - BlueBird, Bat, Plant
-    - Slime, Turtle, Tree, Bunny, Chameleon
+      - BlueBird, Bat, Plant
+      - Slime, Turtle, Tree, Bunny, Chameleon
    - [GroundManager](#Ground-Manager)
 
 ## 시작하기
