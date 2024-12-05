@@ -194,7 +194,7 @@ public bool LayerCheck(LayerMask _layer)
 
 ## 기술 스택
 1. ![UnityImage](./Image/Unity.png) 2. ![c#Image](./Image/c#.jpg)
-- **C#**, **Unity**
+-  **Unity**, **C#**
 
 
 
