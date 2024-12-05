@@ -22,7 +22,7 @@
    - [헬리콥터 아이템](#헬리콥터-아이템)
    - [플래시](#플래시)
 3. [코드 설명](#코드-설명)
-   - [상태 머신 구조](#상태-머신-구조)
+   - [StateMachine](#StateMahcine-and-States)
    - [플레이어 로직](#자동-점프-구현)
    - [적 캐릭터 로직](#적-캐릭터-로직)
 
@@ -79,7 +79,7 @@
 ![TramplineImage](./Image/Flash.gif)
 
 ## 코드 설명
-
+### StateMachine
 ![StateMachineImage](./Image/StateMachine.png)
 
   - 이 게임은 위의 그림과 같은 **상태 머신(State Machine)** 기반으로 설계되었습니다.
