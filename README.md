@@ -22,7 +22,7 @@
    - [Helicopter](#Helicopter)
    - [Flash](#Flash)
 3. [코드 설명](#코드-설명)
-   - [StateMachine](#StateMahcine-and-States)
+   - [StateMachine](#StateMahcine)
    - [플레이어 로직](#자동-점프-구현)
    - [적 캐릭터 로직](#적-캐릭터-로직)
 
