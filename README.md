@@ -119,9 +119,42 @@ public void Exit();
 - Update는 Unity안에서 따로 정의되어 있는 함수인 **Update()** 메서드 안에서 CurrentState.Update()에 의해 호출되어 동작을 수행합니다.
 
 ### Player
-- **Ground Layer**에 닿으면 자동으로 점프하도록 설정했습니다.
-- `CheckLayer()` 함수를 통해 현재 접촉한 레이어가 `ground`, `enemyLayer`, `flyEnemyLayer`인지 판별합니다.
-- 만약 `ground` 레이어라면 자동 점프를 실행합니다.
+```csharp
+public bool LayerCheck(LayerMask _layer)
+{
+    if (!Collider.enabled)
+        return false;
+
+    if (_layer == groundLayer)
+    {
+        RaycastHit2D hit = Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
+
+        if (hit.collider != null)
+        {
+            FallingGround fallingGround = hit.collider.GetComponent<FallingGround>();
+            if (fallingGround != null)
+            {
+                fallingGround.Fall();
+            }
+            return true; // 충돌이 있는 경우 true 반환
+        }
+        return false; // 충돌이 없는 경우 false 반환
+    }
+    else
+    {
+        return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
+    }
+}
+```
+  1. Collider 활성화 여부 확인
+    - Collider.enabled가 false일 경우 바로 false를 반환합니다.
+
+  2. Ground 레이어 확인 (groundLayer)
+  CircleCast를 통해 충돌 여부를 확인합니다.
+  충돌한 오브젝트에 FallingGround 컴포넌트가 있다면 Fall() 메서드를 호출합니다.
+  충돌이 있다면 true, 없다면 false를 반환합니다.
+  기타 레이어 확인
+  단순히 CircleCast를 통해 충돌 여부를 확인하고 결과를 반환합니다.
 
 ### Enemy
 #### Enemy Types
