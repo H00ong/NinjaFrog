@@ -28,8 +28,8 @@
    - [Enemy](#Enemy)
       - BlueBird, Bat, Plant
       - Slime, Turtle, Tree, Bunny, Chameleon
-   - [GroundManager](#Ground-Manager)
-
+5. [기술 스택](#기술-스택)
+      
 ## 시작하기
 1. **GitHub에서 다운로드**
    - GitHub 페이지로 이동한 후, `Code` 버튼을 클릭하고 **Download ZIP**을 선택하거나 아래 명령어로 레포지토리를 클론합니다:
@@ -182,6 +182,10 @@ public bool LayerCheck(LayerMask _layer)
   - 유니티에서는 애니메이션 특정 프레임에 이벤트를 발생시킬 수 있습니다.
   - 이벤트로 함수를 설정하였고, Parameter로 혀의 길이 x scale값을 전달합니다.
   - 이를 통해 자식 객체의 길이가 설정하여 공격 길이를 조절하였습니다.
+
+## 기술 스택
+1. 유니티 사진 2. C# 사진
+- **C#**, **Unity**
 
 
 
