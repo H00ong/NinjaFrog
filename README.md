@@ -60,6 +60,16 @@
 - **순간 이동**: `Space`키를 누르면 Player위의 2번째 Ground위로 순간 이동합니다.
 - **ESC**: 'Escape'키를 누르면 Play를 중단할 수 있습니다. 
 
+## 게임 구성
+- 사진
+- 처음 시작 화면입니다. 최고 점수를 보여주고 플레이 버튼과 Quit 버튼이 주어집니다.
+- 사진
+- In game 화면입니다. 우측 상단에 최고 점수를 보여주고 좌측 하단에는 Flash 남은 횟수와 gauge를 보여줍니다.
+- ESC 화면. Escape를 누른 경우에 나오는 화면입니다. 게임이 일시 중단됩니다. Escape 버튼을 다시 누르거나 play버튼을 누르면 재개합니다.
+- Restart 버튼을 누르면 해당 플레이가 초기화되고 0점이 됩니다.
+- 사진
+- Game Over 화면입니다.
+
 ## 아이템 및 기능
 ### Trampline
 ![TramplineImage](./Image/Trampline.png)
@@ -161,7 +171,7 @@ public bool LayerCheck(LayerMask _layer)
 ### Enemy
 #### Enemy Types
 - **BlueBirdEnemy**, **Bat**, **Plants**
-  !사진
+  - !사진
   - 이들은 플레이어를 인지해야 합니다.
   - `PlayerDetector` 객체를 통해 일정 범위 내에 플레이어가 있는지 감지합니다.
   - 감지하는 로직은 Collider2D를 두고 Trigger로 설정하여, Trigger 영역 안에 들어오면 Player를 인식하게 됩니다.
