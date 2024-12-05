@@ -60,6 +60,7 @@
 ![TramplineImage](./Image/Trampline.png)
 - 트램펄린을 타면 **더블 점프**를 할 수 있습니다.
 - 더블 점프 중에는 적으로부터 피해를 받지 않습니다.
+
 ![TramplineImage](./Image/Trampline.gif)
 
 ### 헬리콥터 아이템
