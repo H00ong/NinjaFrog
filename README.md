@@ -18,9 +18,9 @@
 0. [시작하기](#게임-시작하기)
 1. [게임 조작 방법](#게임-조작-방법)
 2. [아이템 및 기능](#아이템-및-기능)
-   - [트램펄린](#트램펄린)
-   - [헬리콥터 아이템](#헬리콥터-아이템)
-   - [플래시](#플래시)
+   - [Trampline](#Trampline)
+   - [Helicopter](#Helicopter)
+   - [Flash](#Flash)
 3. [코드 설명](#코드-설명)
    - [StateMachine](#StateMahcine-and-States)
    - [플레이어 로직](#자동-점프-구현)
@@ -56,22 +56,22 @@
 - **순간 이동**: `Space`키를 누르면 Player위의 2번째 Ground위로 순간 이동합니다.
 
 ## 아이템 및 기능
-### 트램펄린
+### Trampline
 ![TramplineImage](./Image/Trampline.png)
 - 트램펄린을 타면 **더블 점프**를 할 수 있습니다.
 - 더블 점프 중에는 적으로부터 피해를 받지 않습니다.
 
 ![TramplineImage](./Image/Trampline.gif)
 
-### 헬리콥터
+### Helicopter
 ![TramplineImage](./Image/Helicopter.png)
 - 헬리콥터 아이템에 닿으면 **비행**이 가능합니다.
-- 캐릭터 아래의 **파란색 게이지**는 아이템의 유지 시간을 표시합니다.
+- 플레이어 아래의 **파란색 게이지**는 아이템의 유지 시간을 표시합니다.
 - 비행 중에는 적에게서 피해를 받지 않습니다.
 
 ![TramplineImage](./Image/Helicopter.gif)
 
-### 플래시 (Flash)
+### Flash
 - `Space` 키를 누르면 **플래시**를 사용할 수 있습니다.
 - 플레이어보다 높은 위치에 있는 **두 개의 위에 있는 그라운드**로 순간이동합니다.
 - 플래시는 **충전 방식**이며, 아래 게이지를 통해 충전 시간을 확인할 수 있습니다.
