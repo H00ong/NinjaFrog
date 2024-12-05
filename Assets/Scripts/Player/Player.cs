@@ -119,10 +119,10 @@ public class Player : MonoBehaviour
         if (!Collider.enabled)
             return false;
 
+        RaycastHit2D hit = Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
+
         if (_layer == groundLayer)
         {
-            RaycastHit2D hit = Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
-
             if (hit.collider != null)
             {
                 FallingGround fallingGround = hit.collider.GetComponent<FallingGround>();
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            return Physics2D.CircleCast(groundedCheck.transform.position, groundedRadius, Vector2.down, 0, _layer);
+            return hit.collider != null;
         }
     }
 
