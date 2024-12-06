@@ -5,6 +5,8 @@
 - 게임 플레이 영상 링크입니다.
 [GamePlay](https://www.youtube.com/watch?v=o5BaEgDQWqU)
 
+# License
+- This project is licensed under the MIT License
 
 # Contributor
 - H00ong(박재홍)
